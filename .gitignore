@@ -1,0 +1,16 @@
+# Unity generated folders - should not be tracked
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+# Visual Studio files
+.vs/
+*.csproj
+*.sln
+
+# Other
+.DS_Store
