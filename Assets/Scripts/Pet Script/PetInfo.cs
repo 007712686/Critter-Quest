@@ -9,6 +9,7 @@ public class PetInfo : MonoBehaviour
     public float happiness;
     public bool healthy;
     public string species;
+    public float maxFull, maxHapp;
     public GameObject viewButton, petButton, playButton;
     // Start is called before the first frame update
     void Start()

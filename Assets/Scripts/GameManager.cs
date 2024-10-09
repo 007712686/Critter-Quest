@@ -15,6 +15,8 @@ public class GameManager : Singleton<GameManager>
     GameObject TextManager;
     [SerializeField]
     public GameObject inventory;
+
+
     public float slimeHappiness = 100, slimeFullness = 100;
     public bool slimeHealthy = true;
     public string slimeSpecies = "Slime";
