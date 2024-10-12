@@ -15,15 +15,7 @@ public class GameManager : Singleton<GameManager>
     GameObject TextManager;
     [SerializeField]
     public GameObject inventory;
-
-
-    public float slimeHappiness = 100, slimeFullness = 100;
-    public bool slimeHealthy = true;
-    public string slimeSpecies = "Slime";
-
-    public float dogHappiness = 100, dogFullness = 100;
-    public bool dogHealthy = true;
-    public string dogSpecies = "Dog";
+    public List<PetObject> petObjects = new List<PetObject>();
     protected GameManager()
     {
 
@@ -60,35 +52,6 @@ public class GameManager : Singleton<GameManager>
     public GameObject getTextBox()
     {
         return textBox;
-    }
-    //Getters and setters for each pet stats
-    public void getSlimeStats(GameObject x)
-    {
-        x.GetComponent<PetInfo>().species = slimeSpecies;
-        x.GetComponent<PetInfo>().fullness = slimeFullness;
-        x.GetComponent<PetInfo>().happiness = slimeHappiness;
-        x.GetComponent<PetInfo>().healthy = slimeHealthy;
-    }
-    public void setSlimeStats(float f, float h, bool e)
-    {
-        slimeSpecies = "Slime";
-        slimeFullness = f;
-        slimeHappiness = h;
-        slimeHealthy = e;
-    }
-    public void getSecondStats(GameObject x)
-    {
-        x.GetComponent<PetInfo>().species = dogSpecies;
-        x.GetComponent<PetInfo>().fullness = dogFullness;
-        x.GetComponent<PetInfo>().happiness = dogHappiness;
-        x.GetComponent<PetInfo>().healthy = dogHealthy;
-    }
-    public void setSecondStats(float f, float h, bool e)
-    {
-        slimeSpecies = "Dog";
-        slimeFullness = f;
-        slimeHappiness = h;
-        slimeHealthy = e;
     }
     //Openers for inventory 
     public void openInventory()

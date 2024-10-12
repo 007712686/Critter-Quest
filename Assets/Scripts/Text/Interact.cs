@@ -26,9 +26,15 @@ public class Interact : MonoBehaviour
         {
             GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(false);
             petInteract = false;
-            interactionTarget.gameObject.GetComponent<PetInfo>().viewButton.SetActive(false);
-            interactionTarget.gameObject.GetComponent<PetInfo>().playButton.SetActive(false);
-            interactionTarget.gameObject.GetComponent<PetInfo>().petButton.SetActive(false);
+            interactionTarget.gameObject.GetComponent<PetInfo>().viewButton.transform.localPosition = new Vector2(-1000, 1000);
+            interactionTarget.gameObject.GetComponent<PetInfo>().playButton.transform.localPosition = new Vector2(-1000, 1000);
+            interactionTarget.gameObject.GetComponent<PetInfo>().petButton.transform.localPosition = new Vector2(-1000, 1000);
+            if (interactionTarget.gameObject.GetComponentInChildren<ViewCreature>() != null)
+            {
+                print("Removing Screen");
+                interactionTarget.gameObject.GetComponent<PetInfo>().viewScreen.transform.localPosition = new Vector2(-1000, 1000);
+            }
+
         }
         //If we press interact, use the direction in the animator to set our interact direction
         if (Input.GetKeyDown(interact))
@@ -60,15 +66,13 @@ public class Interact : MonoBehaviour
                 //Handles interacting with pets
                 else if(interactionTarget.GetComponent<PetInfo>() != null)
                 {
-                    print("INTERACTING WITH: " + interactionTarget.gameObject.GetComponent<PetInfo>().species);
+                    print("INTERACTING WITH: " + interactionTarget.gameObject.GetComponent<PetInfo>().thisPet.petName);
                     GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(true);
                     print("Pausing to talk with them!");
                     petInteract = true;
-                    interactionTarget.gameObject.GetComponent<PetInfo>().viewButton.SetActive(true);
-                    interactionTarget.gameObject.GetComponent<PetInfo>().playButton.SetActive(true);
-                    interactionTarget.gameObject.GetComponent<PetInfo>().petButton.SetActive(true);
-
-                    //When you press the Pet Button, happiness goes up
+                    interactionTarget.gameObject.GetComponent<PetInfo>().viewButton.transform.localPosition = new Vector2(-1.5f, 1);
+                    interactionTarget.gameObject.GetComponent<PetInfo>().playButton.transform.localPosition = new Vector2(0, 1);
+                    interactionTarget.gameObject.GetComponent<PetInfo>().petButton.transform.localPosition = new Vector2(1.5f, 1);
                 }
             }
         }

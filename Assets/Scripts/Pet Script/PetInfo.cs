@@ -4,27 +4,13 @@ using UnityEngine;
 
 public class PetInfo : MonoBehaviour
 {
-    //Holds info for the pet stats
-    public float fullness;
-    public float happiness;
-    public bool healthy;
-    public string species;
-    public float maxFull, maxHapp;
-    public GameObject viewButton, petButton, playButton;
+    public GameObject viewButton, petButton, playButton, viewScreen;
+    public PetObject thisPet;
     // Start is called before the first frame update
     void Start()
     {
-        if(species != null && happiness == 0)
-        {
-            if (species == "Slime")
-            {
-                GameManager.Instance.getSlimeStats(this.gameObject);
-            }
-            if (species == "Dog")
-            {
-                GameManager.Instance.getSecondStats(this.gameObject);
-            }
-        }
+        GameManager.Instance.petObjects.Add(thisPet);
+
     }
 
     // Update is called once per frame

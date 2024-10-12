@@ -14,7 +14,7 @@ public class PetButtons : MonoBehaviour
         if (this.gameObject.name == "Play")
             this.gameObject.transform.parent.gameObject.GetComponent<PetInfo>().playButton = this.gameObject;
 
-        this.gameObject.SetActive(false);
+        transform.localPosition = new Vector2(-1000, 1000);
     }
 
     // Update is called once per frame
