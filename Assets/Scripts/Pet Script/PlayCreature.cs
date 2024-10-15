@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayCreature : MonoBehaviour
 {
@@ -19,5 +20,6 @@ public class PlayCreature : MonoBehaviour
     public void play()
     {
         //Set up minigame here
+        SceneManager.LoadScene("FallingMiniScene");
     }
 }
