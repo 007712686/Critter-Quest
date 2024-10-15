@@ -12,9 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/InventoryTest.unity
     guid: 89b8a3fce11b15e4ea395e94c8256465
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/MainMenu - old.unity
     guid: dd24f1c7ec4b59542ad005fef6c71e0e
   - enabled: 1
-    path: Assets/Scenes/Settings.unity
+    path: Assets/Scenes/Settings - old.unity
     guid: b170d1f46d00e7f43bce02309f1f9469
+  - enabled: 1
+    path: Assets/MiniGame1/Scenes/FallingMiniScene.unity
+    guid: a68643e6e2164174ab64bfb7d984d6c9
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0c659e23dce33f546856bac25c68c3c3
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: ef934e8b6fc7b6f499bb8cb0cebd715a
   m_configObjects: {}
