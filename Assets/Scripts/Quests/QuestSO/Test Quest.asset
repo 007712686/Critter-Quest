@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb38d0aea6d78e438ab58e632561450, type: 3}
+  m_Name: Test Quest
+  m_EditorClassIdentifier: 
+  questID: 0
+  goal1ID: 1
+  goal2ID: 2
+  goal1Max: 1
+  goal2Max: 2
+  goal1Progress: 1
+  goal2Progress: 2
+  questName: Let's Try This!
+  questRequirements: Get 2 of something and one of something else, i dunno this is
+    a test quest
+  questGoal1Words: Get a thing
+  questGoal2Words: Get 2 things
+  questGiver: 
+  questFinished: 0
+  questTurnedIn: 0
+  questAccepted: 0

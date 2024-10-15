@@ -30,9 +30,14 @@ public class InventoryManager : MonoBehaviour
             {
                 itemInSlot.count++;
                 itemInSlot.RefreshCount();
+                if(GameManager.Instance.questManager.GetComponent<QuestTracker>().currentQuests.Count != 0)
+                {
+                    GameManager.Instance.questManager.GetComponent<QuestTracker>().checkUpdatedInvenAdd(item);
+                }
                 return true;
             }
         }
+
 
         //Find any empty slot
         for (int i = 0; i < inventorySlots.Length; i++)
@@ -42,6 +47,10 @@ public class InventoryManager : MonoBehaviour
             if(itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
+                if (GameManager.Instance.questManager.GetComponent<QuestTracker>().currentQuests.Count != 0)
+                {
+                    GameManager.Instance.questManager.GetComponent<QuestTracker>().checkUpdatedInvenAdd(item);
+                }
                 return true;
             }
         }

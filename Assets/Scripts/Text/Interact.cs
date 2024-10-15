@@ -16,7 +16,7 @@ public class Interact : MonoBehaviour
     public bool petInteract;
     private void OnDrawGizmos()
     {
-        Gizmos.DrawRay(transform.position, currentDirection * .5f);
+        Gizmos.DrawRay(transform.position, currentDirection * 1);
     }
     // Update is called once per frame
     void Update()
@@ -48,15 +48,24 @@ public class Interact : MonoBehaviour
             if (this.gameObject.GetComponentInChildren<Animator>().GetInteger("Direction") == 3)
                 currentDirection = Vector2.left;
             //set the target if one exists that the raycast hits
-            target = Physics2D.Raycast(transform.position, currentDirection, .5f,layerMask);
+            target = Physics2D.Raycast(transform.position, currentDirection, 1,layerMask);
             if(target.transform != null)
             {
-                //Handles interacting with objects with text boxes
                 interactionTarget = target.transform.gameObject;
+                //Handles interacting with objects with text boxes
                 if (interactionTarget.GetComponent<InteractText>() != null && interactionTarget.GetComponent<TextHolder>() != null && interactionTarget.GetComponent<InteractText>().getEndOfBox() != true && interactionTarget.GetComponent<InteractText>().getCompleteResetter() != true)
                 {
                     if(interactionTarget.GetComponent<InteractText>().getIsTyping() == false)
                     interactionTarget.GetComponent<TextHolder>().startConvo();
+                }
+                //Handles interacting with objects with quests
+                if (interactionTarget.GetComponent<QuestGiver>() != null)
+                {
+                    if (interactionTarget.GetComponent<QuestGiver>().questGiven.questTurnedIn != true)
+                    {
+                        GameManager.Instance.questManager.GetComponent<QuestTracker>().questInQuestion = interactionTarget.GetComponent<QuestGiver>().questGiven;
+                        GameManager.Instance.questManager.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().openBoard();
+                    }
                 }
 
 
@@ -64,7 +73,7 @@ public class Interact : MonoBehaviour
 
 
                 //Handles interacting with pets
-                else if(interactionTarget.GetComponent<PetInfo>() != null)
+                else if (interactionTarget.GetComponent<PetInfo>() != null)
                 {
                     print("INTERACTING WITH: " + interactionTarget.gameObject.GetComponent<PetInfo>().thisPet.petName);
                     GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(true);

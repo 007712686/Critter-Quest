@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     public GameObject inventory;
     public List<PetObject> petObjects = new List<PetObject>();
+    public GameObject questManager;
     protected GameManager()
     {
 
