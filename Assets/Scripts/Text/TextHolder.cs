@@ -10,6 +10,10 @@ public class TextHolder : MonoBehaviour
     string[] dialogue;
     [SerializeField]
     int index = 0;
+    private void Start()
+    {
+        
+    }
     public int getIndex()
     {
         return index;
@@ -28,9 +32,22 @@ public class TextHolder : MonoBehaviour
     }
     public void startConvo()
     {
-        if (index < dialogue.Length)
+        if (this.gameObject.GetComponent<InteractText>().interrupt == false)
         {
-            this.gameObject.GetComponent<InteractText>().interactWith(dialogue[index]);
+            if (index < dialogue.Length)
+            {
+                this.gameObject.GetComponent<InteractText>().interactWith(dialogue[index]);
+            }
+        }
+        else if(this.gameObject.GetComponent<InteractText>().interrupt == true)
+        {
+            print("Going");
+            if(this.gameObject.GetComponent<QuestGiver>() != null)
+            {
+                GameManager.Instance.questManager.GetComponent<QuestTracker>().questInQuestion = this.gameObject.GetComponent<QuestGiver>().questGiven;
+                GameManager.Instance.questManager.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().openBoard();
+                GameManager.Instance.getTextBox().GetComponent<TextBox>().closeBox();
+            }
         }
     }
 }

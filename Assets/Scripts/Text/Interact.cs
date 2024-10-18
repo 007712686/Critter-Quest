@@ -8,7 +8,7 @@ public class Interact : MonoBehaviour
     [SerializeField]
     KeyCode interact;
     [SerializeField]
-    GameObject interactionTarget;
+    public GameObject interactionTarget;
     RaycastHit2D target;
     Vector2 currentDirection;
     [SerializeField]
@@ -64,7 +64,7 @@ public class Interact : MonoBehaviour
                     if (interactionTarget.GetComponent<QuestGiver>().questGiven.questTurnedIn != true)
                     {
                         GameManager.Instance.questManager.GetComponent<QuestTracker>().questInQuestion = interactionTarget.GetComponent<QuestGiver>().questGiven;
-                        GameManager.Instance.questManager.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().openBoard();
+                        //GameManager.Instance.questManager.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().openBoard();
                     }
                 }
 

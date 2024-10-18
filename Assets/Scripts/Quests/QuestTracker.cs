@@ -52,11 +52,29 @@ public class QuestTracker : MonoBehaviour
             print("Major error, no double quests! Also no empty quests!");
         questInQuestion.questAccepted = true;
         this.gameObject.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().closeBoard();
+        if (GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget != null)
+        {
+            if (GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt == true)
+            {
+                GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt = false;
+
+                GameManager.Instance.getTextBox().GetComponent<TextBox>().openBox();
+            }
+        }
     }
     public void denyQuest()
     {
         questInQuestion = null;
         this.gameObject.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().closeBoard();
+        if(GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget != null)
+        {
+            if(GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt == true)
+            {
+                GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt = false;
+
+                GameManager.Instance.getTextBox().GetComponent<TextBox>().openBox();
+            }
+        }
 
     }
 
@@ -67,7 +85,14 @@ public class QuestTracker : MonoBehaviour
         currentQuests.Remove(questInQuestion);
         print("Put a reward here!");
         this.gameObject.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().closeBoard();
-
+        if (GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget != null)
+        {
+            if (GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt == true)
+            {
+                GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt = false;
+                GameManager.Instance.getTextBox().GetComponent<TextBox>().openBox();
+            }
+        }
     }
     // Start is called before the first frame update
     void Start()

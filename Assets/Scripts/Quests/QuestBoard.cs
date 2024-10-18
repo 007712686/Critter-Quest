@@ -40,18 +40,19 @@ public class QuestBoard : MonoBehaviour
             qReq.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questRequirements;
             qg1.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questGoal1Words;
             qg2.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questGoal2Words;
-        }
-        if (this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questAccepted == true)
-        {
-            acceptButton.GetComponentInChildren<Text>().text = "Close";
-            denyButton.transform.localPosition = new Vector3(10000, -10000, 0);
-        }
-        if (this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questFinished == true)
-        {
-            turnInButton.transform.localPosition = new Vector3(0, -55.1f, 0);
-            acceptButton.transform.localPosition = new Vector3(10000, -10000, 0);
+            if (this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questAccepted == true)
+            {
+                acceptButton.GetComponentInChildren<Text>().text = "Close";
+                denyButton.transform.localPosition = new Vector3(10000, -10000, 0);
+            }
+            if (this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questFinished == true)
+            {
+                turnInButton.transform.localPosition = new Vector3(0, -55.1f, 0);
+                acceptButton.transform.localPosition = new Vector3(10000, -10000, 0);
 
+            }
         }
+
 
     }
     public void closeBoard()

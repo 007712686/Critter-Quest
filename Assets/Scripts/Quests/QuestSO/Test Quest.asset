@@ -15,10 +15,10 @@ MonoBehaviour:
   questID: 0
   goal1ID: 1
   goal2ID: 2
-  goal1Max: 1
-  goal2Max: 2
-  goal1Progress: 1
-  goal2Progress: 2
+  goal1Max: 0
+  goal2Max: 0
+  goal1Progress: 0
+  goal2Progress: 0
   questName: Let's Try This!
   questRequirements: Get 2 of something and one of something else, i dunno this is
     a test quest

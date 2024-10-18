@@ -78,5 +78,6 @@ public class GameManager : Singleton<GameManager>
             GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(false);
 
         }
+
     }
 }
