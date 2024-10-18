@@ -11,7 +11,8 @@ public class VolumeSettings : MonoBehaviour
 
     private void Start()
     {
-
+        //eventually change this line to match with players saved audio settings
+        musicSlider.value = 1;
         SetMusicVolume();
     }
 
@@ -20,7 +21,8 @@ public class VolumeSettings : MonoBehaviour
     {
         float volume = musicSlider.value;
         myMixer.SetFloat("Music", Mathf.Log10(volume) * 20); // gives us control to change with slider
-        //PlayerPrefs.SetFloat("musicVolume", volume); // Sets player preference to save settings
+        
+        
     }
 
     //Saves player pref
