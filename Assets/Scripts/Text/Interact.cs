@@ -74,6 +74,12 @@ public class Interact : MonoBehaviour
                     interactionTarget.gameObject.GetComponent<PetInfo>().playButton.transform.localPosition = new Vector2(0, 1);
                     interactionTarget.gameObject.GetComponent<PetInfo>().petButton.transform.localPosition = new Vector2(1.5f, 1);
                 }
+
+                //handles interacting with bed
+                else if(interactionTarget.name == "bed")
+                {
+                    interactionTarget.GetComponent<TextHolder>().startConvo();
+                }
             }
         }
     }
