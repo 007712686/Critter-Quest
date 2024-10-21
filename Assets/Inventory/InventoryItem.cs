@@ -88,18 +88,47 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         currentContextMenu = contextMenuInstance; // Set the current context menu reference
 
         // Set the position of the context menu near the clicked item
-        contextMenuInstance.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y-50);
+        contextMenuInstance.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 50);
 
         // Get the buttons and add listeners
         Button placeButton = contextMenuInstance.transform.Find("PlaceButton").GetComponent<Button>();
         Button destroyButton = contextMenuInstance.transform.Find("DestroyButton").GetComponent<Button>();
         Button viewButton = contextMenuInstance.transform.Find("ViewButton").GetComponent<Button>();
 
-        placeButton.onClick.AddListener(() => OnPlace());
+        if(item.isFood != true)
+        {
+            placeButton.onClick.AddListener(() => OnPlace());
+        }
+        else
+        {
+            placeButton.GetComponentInChildren<Text>().text = "Feed";
+            placeButton.onClick.AddListener(() => OnFeed());
+        }
+        //change place button with feed button
+
         destroyButton.onClick.AddListener(() => OnDestroyItem());
         viewButton.onClick.AddListener(() => OnView());
     }
-
+    private void OnFeed()
+    {
+        if(GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget != null)
+        {
+            if(GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>() != null)
+            {
+                print("Feeding " + GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.petName);
+                GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.fullness += 10;
+                if(GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.fullness > GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.maxFull)
+                {
+                    GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.fullness = GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.maxFull;
+                }
+            }
+        }
+        else
+        {
+            print("Nowhere to feed");
+        }
+        CloseContextMenu();
+    }
     private void OnPlace()
     {
         Debug.Log("Placing item..." + item.name);

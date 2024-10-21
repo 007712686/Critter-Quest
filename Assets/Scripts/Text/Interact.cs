@@ -64,7 +64,8 @@ public class Interact : MonoBehaviour
                     if (interactionTarget.GetComponent<QuestGiver>().questGiven.questTurnedIn != true)
                     {
                         GameManager.Instance.questManager.GetComponent<QuestTracker>().questInQuestion = interactionTarget.GetComponent<QuestGiver>().questGiven;
-                        //GameManager.Instance.questManager.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().openBoard();
+                        if(interactionTarget.GetComponent<InteractText>() == null && interactionTarget.GetComponent<TextHolder>() == null)
+                            GameManager.Instance.questManager.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().openBoard();
                     }
                 }
 

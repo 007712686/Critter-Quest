@@ -57,11 +57,11 @@ public class GameManager : Singleton<GameManager>
     //Openers for inventory 
     public void openInventory()
     {
-        inventory.SetActive(true);
+        inventory.transform.position = new Vector3(471.6812438964844f, 129.8805694580078f, 0);
     }
     public void closeInventory()
     {
-        inventory.SetActive(false);
+        inventory.transform.position = new Vector3(1000, -1000, 0);
     }
 
     void Update()
