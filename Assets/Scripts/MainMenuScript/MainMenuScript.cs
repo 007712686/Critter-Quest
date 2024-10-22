@@ -8,7 +8,7 @@ public class MainMenuScript : MonoBehaviour
     public void enterNewGame()
     {
         Debug.Log("Entered new game!");
-        SceneManager.LoadScene("critter quest");
+        SceneManager.LoadScene("inside house");
     }
 
     public void enterLoadGame()
