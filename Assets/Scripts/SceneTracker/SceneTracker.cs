@@ -42,13 +42,13 @@ public class SceneTracker : MonoBehaviour
             //do nothing, reloading mini game scene
             fadeBackground.gameObject.SetActive(false);
         }
-        else if (scene.name != "Settings" || scene.name != "Inventory")
+        else if (scene.name != "Settings" && scene.name != "Inventory")
         {
             fadeBackground.StartFadeOutBlack();
         }
 
-        //for audio... add other mini games here
-        if (scene.name != previousSceneName && scene.name != "FallingMiniScene")
+        //add more audio as needed
+        if ((scene.name != previousSceneName && scene.name != "FallingMiniScene") && scene.name != "Settings" && (scene.name != "MainMenu" && previousSceneName != "Settings"))
         {
             AudioManager.instance.assignMusic();
         }
