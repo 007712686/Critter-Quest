@@ -84,14 +84,15 @@ public class Interact : MonoBehaviour
                     interactionTarget.gameObject.GetComponent<PetInfo>().playButton.transform.localPosition = new Vector2(0, 1);
                     interactionTarget.gameObject.GetComponent<PetInfo>().petButton.transform.localPosition = new Vector2(1.5f, 1);
                 }
-
+                /*fixxxxxxxxx
                 else if (interactionTarget.name == "bed")
                 {
                     interactionTarget.GetComponent<TextHolder>().startConvo();
                 }
+                */
             }
         }
-        /*
+        
         if (DaySystem.instance != null)
         {
             if (DaySystem.instance.getDayNumber() == 0)
@@ -115,6 +116,6 @@ public class Interact : MonoBehaviour
                     }
                 }
             }
-        }*/
+        }
     }
 }
