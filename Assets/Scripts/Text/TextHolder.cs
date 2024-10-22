@@ -30,6 +30,7 @@ public class TextHolder : MonoBehaviour
     public void resetIndex()
     {
         index = 0;
+        endOfIndex = true;
     }
     public void startConvo()
     {
