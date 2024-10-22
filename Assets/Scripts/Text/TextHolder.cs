@@ -10,6 +10,7 @@ public class TextHolder : MonoBehaviour
     string[] dialogue;
     [SerializeField]
     int index = 0;
+    public bool endOfIndex = true;
     private void Start()
     {
         
@@ -50,4 +51,10 @@ public class TextHolder : MonoBehaviour
             }
         }
     }
+    public void setDialogue(string[] newDialogue)
+    {
+        dialogue = newDialogue;
+    }
+
+
 }

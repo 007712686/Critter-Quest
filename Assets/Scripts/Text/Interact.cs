@@ -84,6 +84,35 @@ public class Interact : MonoBehaviour
                     interactionTarget.gameObject.GetComponent<PetInfo>().playButton.transform.localPosition = new Vector2(0, 1);
                     interactionTarget.gameObject.GetComponent<PetInfo>().petButton.transform.localPosition = new Vector2(1.5f, 1);
                 }
+
+                else if (interactionTarget.name == "bed")
+                {
+                    interactionTarget.GetComponent<TextHolder>().startConvo();
+                }
+            }
+        }
+        if (DaySystem.instance != null)
+        {
+            if (DaySystem.instance.getDayNumber() == 0)
+            {
+                if (DaySystem.instance.GetComponent<InteractText>().getIsTyping() == false)
+                {
+                    if (DaySystem.instance.newDay == true)
+                    {
+                        GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(true);
+                        DaySystem.instance.day1Dialogue();
+                    }
+                    else if (Input.GetKeyDown(interact))
+                    {
+                        DaySystem.instance.day1Dialogue();
+
+                    }
+                    if (DaySystem.instance.GetComponent<TextHolder>().endOfIndex == true && DaySystem.instance.newDay == false)
+                    {
+
+                        DaySystem.instance.endDay();
+                    }
+                }
             }
         }
     }
