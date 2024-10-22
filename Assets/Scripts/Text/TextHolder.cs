@@ -33,6 +33,7 @@ public class TextHolder : MonoBehaviour
     }
     public void startConvo()
     {
+        endOfIndex = false;
         if (this.gameObject.GetComponent<InteractText>().interrupt == false)
         {
             if (index < dialogue.Length)
