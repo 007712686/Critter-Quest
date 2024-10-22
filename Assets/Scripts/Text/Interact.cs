@@ -83,29 +83,29 @@ public class Interact : MonoBehaviour
                 }
             }
         }
-        
-        if(DaySystem.instance.getDayNumber() == 0)
+        if (DaySystem.instance != null)
         {
-            if (DaySystem.instance.GetComponent<InteractText>().getIsTyping() == false)
+            if (DaySystem.instance.getDayNumber() == 0)
             {
-                if (DaySystem.instance.newDay == true)
+                if (DaySystem.instance.GetComponent<InteractText>().getIsTyping() == false)
                 {
-                    GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(true);
-                    DaySystem.instance.day1Dialogue();
-                }
-                else if (Input.GetKeyDown(interact))
-                {
-                    DaySystem.instance.day1Dialogue();
+                    if (DaySystem.instance.newDay == true)
+                    {
+                        GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(true);
+                        DaySystem.instance.day1Dialogue();
+                    }
+                    else if (Input.GetKeyDown(interact))
+                    {
+                        DaySystem.instance.day1Dialogue();
 
-                }
-                if (DaySystem.instance.GetComponent<TextHolder>().endOfIndex == true && DaySystem.instance.newDay == false)
-                {
+                    }
+                    if (DaySystem.instance.GetComponent<TextHolder>().endOfIndex == true && DaySystem.instance.newDay == false)
+                    {
 
-                    DaySystem.instance.endDay();
+                        DaySystem.instance.endDay();
+                    }
                 }
             }
-                
-            
         }
 
         

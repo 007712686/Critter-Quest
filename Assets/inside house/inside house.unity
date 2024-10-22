@@ -5835,130 +5835,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46, y: 0.46}
   m_EdgeRadius: 0
---- !u!1 &771942034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 771942035}
-  - component: {fileID: 771942036}
-  - component: {fileID: 771942037}
-  - component: {fileID: 771942038}
-  - component: {fileID: 771942039}
-  m_Layer: 6
-  m_Name: DaySystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &771942035
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771942034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.65, y: 7.7, z: -0.056598116}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &771942036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771942034}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c78eb30c99a62a45838d03045aa5584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dayObject: {fileID: 771942034}
-  newDialogue:
-  - Hello and welcome to Critter Quest!
-  - In this world, there are a number of fantastic pets that need to be loved and
-    taken care of.
-  - Let's go and find them!
-  newDay: 1
---- !u!114 &771942037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771942034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4f8ada90951ac146ba1c7f52cef6868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - 
-  - 
-  - 
-  index: 0
-  endOfIndex: 1
---- !u!114 &771942038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771942034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cefb989e9cff364fbe4ea06cbbab98c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTextArray: []
-  maxCharSize: 50
-  currentChar: 0
-  textField: {fileID: 2125578617}
-  currentDisplayText: 
-  charsLeft: 0
-  endOfBox: 0
-  isTyping: 0
-  interact: 9
-  numOfNewLines: 0
-  complete: 0
-  index: 0
-  completeResetter: 0
-  firstBoxBroughtUp: 0
---- !u!61 &771942039
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771942034}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &862777003
 GameObject:
   m_ObjectHideFlags: 0
@@ -10026,3 +9902,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125578615}
   m_CullTransparentMesh: 1
+--- !u!1001 &6373888556572545297
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.056598116
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265602, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265603, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: m_Name
+      value: DaySystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265607, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: textField
+      value: 
+      objectReference: {fileID: 2125578617}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
