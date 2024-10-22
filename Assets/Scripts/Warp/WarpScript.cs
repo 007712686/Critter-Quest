@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class WarpScript : MonoBehaviour
 {
     public string sceneName;
+    public FadeScript fadeBackground;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class WarpScript : MonoBehaviour
 
     public void warp()
     {
+        //fadeBackground.StartFadeToBlack();
         SceneManager.LoadSceneAsync(sceneName);
     }
 

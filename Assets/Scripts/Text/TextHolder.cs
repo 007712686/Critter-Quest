@@ -10,6 +10,8 @@ public class TextHolder : MonoBehaviour
     string[] dialogue;
     [SerializeField]
     int index = 0;
+    public bool endOfIndex = true;
+
     public int getIndex()
     {
         return index;
@@ -25,12 +27,18 @@ public class TextHolder : MonoBehaviour
     public void resetIndex()
     {
         index = 0;
+        endOfIndex = true;
     }
     public void startConvo()
     {
+        endOfIndex = false;
         if (index < dialogue.Length)
         {
             this.gameObject.GetComponent<InteractText>().interactWith(dialogue[index]);
         }
+    }
+    public void setDialogue(string[] newDialogue)
+    {
+        dialogue = newDialogue;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 
@@ -82,5 +83,32 @@ public class Interact : MonoBehaviour
                 }
             }
         }
+        
+        if(DaySystem.instance.getDayNumber() == 0)
+        {
+            if (DaySystem.instance.GetComponent<InteractText>().getIsTyping() == false)
+            {
+                if (DaySystem.instance.newDay == true)
+                {
+                    GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(true);
+                    DaySystem.instance.day1Dialogue();
+                }
+                else if (Input.GetKeyDown(interact))
+                {
+                    DaySystem.instance.day1Dialogue();
+
+                }
+                if (DaySystem.instance.GetComponent<TextHolder>().endOfIndex == true && DaySystem.instance.newDay == false)
+                {
+
+                    DaySystem.instance.endDay();
+                }
+            }
+                
+            
+        }
+
+        
+        
     }
 }
