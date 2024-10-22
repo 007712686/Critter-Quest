@@ -47,7 +47,10 @@ public class AudioManager : MonoBehaviour
             case "critter quest":
                 musicSource.clip = musicWorld;
                 break;
-            //add other cases here as scenes come
+            case "inside house":
+                musicSource.clip = musicBedroom;
+                break;
+                //add other cases here as scenes come
         }
         musicSource.Play();
     }
