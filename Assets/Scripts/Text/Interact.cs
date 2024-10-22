@@ -91,6 +91,7 @@ public class Interact : MonoBehaviour
                 }
             }
         }
+        /*
         if (DaySystem.instance != null)
         {
             if (DaySystem.instance.getDayNumber() == 0)
@@ -114,6 +115,6 @@ public class Interact : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
 }
