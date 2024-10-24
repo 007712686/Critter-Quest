@@ -84,6 +84,15 @@ public class Interact : MonoBehaviour
                     interactionTarget.gameObject.GetComponent<PetInfo>().playButton.transform.localPosition = new Vector2(0, 1);
                     interactionTarget.gameObject.GetComponent<PetInfo>().petButton.transform.localPosition = new Vector2(1.5f, 1);
                 }
+
+
+                //Handles interacting with items
+                else if (interactionTarget.GetComponent<ItemAssign>() != null)
+                {
+                    print("INTERACTING WITH AN ITEM!");
+                    GameManager.Instance.inventory.GetComponentInChildren<InventoryManager>().AddItem(interactionTarget.GetComponent<ItemAssign>().itemItIs);
+                    Destroy(interactionTarget);
+                }
                 /*fixxxxxxxxx
                 else if (interactionTarget.name == "bed")
                 {

@@ -17,8 +17,20 @@ public class GameManager : Singleton<GameManager>
     public GameObject inventory;
     public List<PetObject> petObjects = new List<PetObject>();
     public GameObject questManager;
+    public Vector2 overPos;
+    public bool needReset = false;
     protected GameManager()
     {
+
+    }
+
+    public void resetPlayerPos()
+    {
+        if (player != null)
+        {
+            player.transform.position = overPos;
+            needReset = false;
+        }
 
     }
     //Getters and Setters for each object that must accessable be in every scene
@@ -66,6 +78,10 @@ public class GameManager : Singleton<GameManager>
 
     void Update()
     {
+        if(needReset == true)
+        {
+            resetPlayerPos();
+        }
         //Escape while the player isnt paused
         if (Input.GetKeyDown(KeyCode.Backspace) && GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().getPauseWorld() == false)
         {

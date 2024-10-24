@@ -93,10 +93,13 @@ public class QuestTracker : MonoBehaviour
         this.gameObject.GetComponent<QuestAssigner>().questHolder.GetComponent<QuestBoard>().closeBoard();
         if (GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget != null)
         {
-            if (GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt == true)
+            if ((GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>() != null))
             {
-                GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt = false;
-                GameManager.Instance.getTextBox().GetComponent<TextBox>().openBox();
+                if (GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt == true)
+                {
+                    GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<InteractText>().interrupt = false;
+                    GameManager.Instance.getTextBox().GetComponent<TextBox>().openBox();
+                }
             }
         }
     }

@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/inside house/inside house.unity
     guid: ec1e3da30da09814ab641869621fa3cd
+  - enabled: 1
+    path: Assets/Scenes/TeamLogo.unity
+    guid: f4f0410c2a29b624a9c6efa76d0ece50
+  - enabled: 1
+    path: Assets/Scenes/Test Scene.unity
+    guid: 488deddac4f31974e9f85403d6a5098c
   m_configObjects: {}

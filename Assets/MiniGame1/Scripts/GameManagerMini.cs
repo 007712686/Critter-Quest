@@ -114,6 +114,7 @@ public class GameManagerMini : MonoBehaviour
 
         if (StartScreen.isQuit == true)
         {
+
             onQuit();
         }
     }
@@ -128,5 +129,7 @@ public class GameManagerMini : MonoBehaviour
 
         //insert code to switch scenes
         SceneManager.LoadScene("critter quest");
+        GameManager.Instance.needReset = true;
+
     }
 }

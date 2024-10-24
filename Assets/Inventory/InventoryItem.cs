@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
@@ -16,6 +17,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public GameObject contextMenuPrefab;  // Reference to your context menu prefab
     private GameObject contextMenuInstance; // Instance of the context menu
     private static GameObject currentContextMenu; // Static reference to the currently open context menu
+    public InventorySlot currentSlot;
 
     public void RefreshCount()
     {
@@ -71,6 +73,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
+            currentSlot = transform.gameObject.GetComponent<InventorySlot>();
             ShowContextMenu();
         }
     }
@@ -131,13 +134,38 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     }
     private void OnPlace()
     {
+        Vector3 spawnPosition = GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().transform.position;
+        switch (GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().direction)
+        {
+            case 0: // Down
+                spawnPosition -= transform.up;
+                break;
+            case 1: // Up
+                spawnPosition += transform.up;
+                break;
+            case 2: // Right
+                spawnPosition += transform.right;
+                break;
+            case 3: // Left
+                spawnPosition -= transform.right;
+                break;
+            default:
+                Debug.LogWarning("Invalid direction specified.");
+                return;
+        }
         Debug.Log("Placing item..." + item.name);
+        item.pref.GetComponent<SpriteRenderer>().sprite = item.image;
+        item.pref.GetComponent<ItemAssign>().itemItIs = this.item;
+        Instantiate(item.pref, spawnPosition, Quaternion.identity);
+        GameManager.Instance.inventory.GetComponentInChildren<InventoryManager>().RemoveItem(this);
+
         CloseContextMenu();
     }
 
     private void OnDestroyItem()
     {
         Debug.Log("Destroying item..." + item.name);
+        GameManager.Instance.inventory.GetComponentInChildren<InventoryManager>().RemoveItem(this);
         CloseContextMenu();
     }
 

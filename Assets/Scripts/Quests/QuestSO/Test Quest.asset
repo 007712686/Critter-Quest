@@ -15,16 +15,16 @@ MonoBehaviour:
   questID: 0
   goal1ID: 1
   goal2ID: 2
-  goal1Max: 0
-  goal2Max: 0
+  goal1Max: 2
+  goal2Max: 5
   goal1Progress: 0
   goal2Progress: 0
-  questName: Let's Try This!
-  questRequirements: Get 2 of something and one of something else, i dunno this is
-    a test quest
-  questGoal1Words: Get a thing
-  questGoal2Words: Get 2 things
+  questName: Test Getting Items!
+  questRequirements: Get 2 pieces of Food and 5 torches! (Use F1 and F2  and F3 with
+    inventory up!)
+  questGoal1Words: Get 2 Food
+  questGoal2Words: Get 5 torches
   questGiver: 
   questFinished: 0
   questTurnedIn: 0
-  questAccepted: 0
+  questAccepted: 1

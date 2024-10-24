@@ -18,6 +18,7 @@ public class Item : ScriptableObject
 
     [Header("Both")]
     public Sprite image;
+    public GameObject pref;
 }
 
 public enum ItemType

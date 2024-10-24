@@ -15,6 +15,7 @@ public class PlayCreature : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Play Button Clicked!");
+        GameManager.Instance.overPos = GameManager.Instance.getPlayer().transform.position;
         play();
     }
     public void play()

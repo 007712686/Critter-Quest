@@ -63,4 +63,21 @@ public class InventoryManager : MonoBehaviour
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.InitializeItem(item);
     }
+
+
+    public void RemoveItem(InventoryItem itemToRemove)
+    {
+                if (itemToRemove.count > 1)
+                {
+                print("Goin");
+                    itemToRemove.count--;
+                    itemToRemove.RefreshCount();
+                }
+                else
+                {
+                    Destroy(itemToRemove.gameObject);
+                }
+        Debug.Log("Item removed: " + itemToRemove.name);
+    }
+
 }

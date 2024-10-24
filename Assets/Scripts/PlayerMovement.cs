@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     KeyCode Up, Down, Left, Right;
     [SerializeField]
-    int direction;
+    public int direction;
     [SerializeField]
     bool pauseWorld = false;
 
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (Input.GetKey(Up) && !isMoving)
             {
+                direction = 1;
                 if (playerAnim.GetInteger("Direction") != 1)
                     playerAnim.SetInteger("Direction", 1);
                 if (this.gameObject.GetComponent<DetectWalls>().returnUpWall() != true)
@@ -48,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
             else
             if (Input.GetKey(Down) && !isMoving)
             {
+                direction = 0;
+
                 if (playerAnim.GetInteger("Direction") != 0)
                     playerAnim.SetInteger("Direction", 0);
                 if (this.gameObject.GetComponent<DetectWalls>().returnDownWall() != true)
@@ -56,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
             else
             if (Input.GetKey(Right) && !isMoving)
             {
+                direction = 2;
+
                 if (playerAnim.GetInteger("Direction") != 2)
                     playerAnim.SetInteger("Direction", 2);
                 if (this.gameObject.GetComponent<DetectWalls>().returnRightWall() != true)
@@ -64,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
             else
             if (Input.GetKey(Left) && !isMoving)
             {
+                direction = 3;
+
                 if (playerAnim.GetInteger("Direction") != 3)
                     playerAnim.SetInteger("Direction", 3);
                 if (this.gameObject.GetComponent<DetectWalls>().returnLeftWall() != true)
