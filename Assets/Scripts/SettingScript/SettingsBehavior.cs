@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 public class SettingsBehavior : MonoBehaviour
@@ -14,6 +13,7 @@ public class SettingsBehavior : MonoBehaviour
 
     private float currentRefreshRate;
     private int currentResolutionIndex = 0;
+
     private void Start()
     {
         Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
@@ -23,16 +23,18 @@ public class SettingsBehavior : MonoBehaviour
         resolutionDropdown.ClearOptions();
         currentRefreshRate = (float)Screen.currentResolution.refreshRate;
 
-        for(int i = 0; i < resolutions.Length; i++)
+        // Filter resolutions by refresh rate and aspect ratio (16:9)
+        for (int i = 0; i < resolutions.Length; i++)
         {
-            if (resolutions[i].refreshRate == currentRefreshRate)
+            float aspectRatio = (float)resolutions[i].width / resolutions[i].height;
+            if (resolutions[i].refreshRate == currentRefreshRate && Mathf.Approximately(aspectRatio, 16f / 9f))
             {
                 filteredResolutions.Add(resolutions[i]);
             }
         }
 
         List<string> options = new List<string>();
-        for(int i = 0; i < filteredResolutions.Count; i++)
+        for (int i = 0; i < filteredResolutions.Count; i++)
         {
             string resolutionOption = filteredResolutions[i].width + "x" + filteredResolutions[i].height + " " + filteredResolutions[i].refreshRate + "Hz";
             options.Add(resolutionOption);
@@ -45,13 +47,12 @@ public class SettingsBehavior : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = filteredResolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, false);
+        Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.ExclusiveFullScreen);
         Debug.Log(Screen.width + " " + Screen.height);
     }
 
@@ -60,10 +61,9 @@ public class SettingsBehavior : MonoBehaviour
         Debug.Log("Back to start screen!");
         SceneManager.LoadScene("MainMenu");
     }
-   
+
     public void manageResolution()
     {
-
         Debug.Log("Adjust resolution!");
         Debug.Log(Screen.width + "x" + Screen.height);
     }
