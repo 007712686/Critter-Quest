@@ -155,7 +155,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         }
         Debug.Log("Placing item..." + item.name);
         item.pref.GetComponent<SpriteRenderer>().sprite = item.image;
-        //item.pref.GetComponent<ItemAssign>().itemItIs = this.item;
+        item.pref.GetComponent<ItemAssign>().itemItIs = this.item;
         Instantiate(item.pref, spawnPosition, Quaternion.identity);
         GameManager.Instance.inventory.GetComponentInChildren<InventoryManager>().RemoveItem(this);
 

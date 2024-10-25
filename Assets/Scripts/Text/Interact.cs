@@ -87,14 +87,14 @@ public class Interact : MonoBehaviour
 
 
                 //Handles interacting with items
-                /*
+                
                 else if (interactionTarget.GetComponent<ItemAssign>() != null)
                 {
                     print("INTERACTING WITH AN ITEM!");
                     GameManager.Instance.inventory.GetComponentInChildren<InventoryManager>().AddItem(interactionTarget.GetComponent<ItemAssign>().itemItIs);
                     Destroy(interactionTarget);
                 }
-                */
+                
                 /*fixxxxxxxxx
                 else if (interactionTarget.name == "bed")
                 {
