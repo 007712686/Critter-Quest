@@ -2,24 +2,37 @@ using System.Collections;
 using System.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class SceneTracker : MonoBehaviour
 {
+    public static SceneTracker Instance { get; private set; }
     public FadeScript fadeBackground;
     private string previousSceneName;
     // public AudioManager audioManager;
 
-    void Awake()
+    private void Awake()
     {
-        reassignImage();
-        //sceneLoaded event
+        // Singleton pattern
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Prevents this object from being destroyed on scene loads
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicate instance if it exists
+            return;
+        }
+
+        // Subscribe to scene loaded event
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        // Store the initial scene name
+        // Initialize previous scene name
         previousSceneName = SceneManager.GetActiveScene().name;
 
-        // Don't destroy this object on scene loads
-        DontDestroyOnLoad(gameObject);
+        // Initial assignment of FadeScript
+        reassignImage();
     }
 
     void OnDestroy()
