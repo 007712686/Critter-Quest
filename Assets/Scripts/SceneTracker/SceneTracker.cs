@@ -2,7 +2,7 @@ using System.Collections;
 using System.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+//using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class SceneTracker : MonoBehaviour
 {

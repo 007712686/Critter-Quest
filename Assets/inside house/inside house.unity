@@ -4392,7 +4392,7 @@ PrefabInstance:
     - target: {fileID: 765547404564454400, guid: 1f7dd5cd7b5333b4baa703c887418b7b, type: 3}
       propertyPath: textField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 133662491}
     - target: {fileID: 765547404564454410, guid: 1f7dd5cd7b5333b4baa703c887418b7b, type: 3}
       propertyPath: m_Name
       value: bed
@@ -8822,7 +8822,7 @@ PrefabInstance:
     - target: {fileID: 6373888556136265607, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: textField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 133662491}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
 --- !u!1001 &1923814579
