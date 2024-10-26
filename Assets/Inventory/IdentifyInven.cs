@@ -9,7 +9,7 @@ public class IdentifyInven : MonoBehaviour
     void Start()
     {
         GameManager.Instance.inventory = this.gameObject;
-        this.gameObject.transform.localPosition = new Vector3(1000, -1000, 0);
+        this.gameObject.transform.localPosition = new Vector3(10000, -10000, 0);
     }
     // Update is called once per frame
     void Update()

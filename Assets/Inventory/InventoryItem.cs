@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
@@ -124,6 +123,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
                 {
                     GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.fullness = GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.maxFull;
                 }
+                OnDestroyItem();
             }
         }
         else

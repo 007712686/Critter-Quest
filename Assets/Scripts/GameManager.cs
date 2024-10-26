@@ -69,11 +69,11 @@ public class GameManager : Singleton<GameManager>
     //Openers for inventory 
     public void openInventory()
     {
-        inventory.transform.position = new Vector3(471.6812438964844f, 129.8805694580078f, 0);
+        inventory.transform.localPosition = new Vector3(0, -250, 0);
     }
     public void closeInventory()
     {
-        inventory.transform.position = new Vector3(1000, -1000, 0);
+        inventory.transform.localPosition = new Vector3(10000, -10000, 0);
     }
 
     void Update()
