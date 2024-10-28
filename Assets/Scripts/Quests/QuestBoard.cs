@@ -28,6 +28,7 @@ public class QuestBoard : MonoBehaviour
 
     public void openBoard()
     {
+        //Opens up the board and sets all reference buttons to their proper values based on quest status
         acceptButton.GetComponentInChildren<Text>().text = "Accept";
         this.gameObject.transform.localPosition = new Vector2(-57, 20);
         turnInButton.transform.localPosition = new Vector3(10000, -10000, 0);

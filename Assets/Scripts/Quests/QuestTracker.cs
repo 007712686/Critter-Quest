@@ -8,6 +8,7 @@ public class QuestTracker : MonoBehaviour
     public QuestSO questInQuestion;
     public void checkUpdatedInvenAdd(Item itemSent)
     {
+        //Checks for quests that require an item, updates the inventory to see if the goals are met.
         for (int i = 0; i < currentQuests.Count; i++)
         {
             if (itemSent.itemID == currentQuests[i].goal1ID)
@@ -46,6 +47,7 @@ public class QuestTracker : MonoBehaviour
 
     public void addQuest()
     {
+        //Checks if a quest is already taken.  Otherwise, adds the quest and checks if it was given via an NPC.  If so, return to dialogue.
         if (currentQuests.Contains(questInQuestion) != true && questInQuestion != null)
             currentQuests.Add(questInQuestion);
         else
