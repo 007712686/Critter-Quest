@@ -64,6 +64,11 @@ public class GameManagerMini : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Player == null)
+        {
+            AssignReferences();
+        }
+
         if (SceneManager.GetActiveScene().name == "FallingMiniScene")
         {
             handleGame();
