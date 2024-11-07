@@ -19,7 +19,7 @@ public class InteractText : MonoBehaviour
 
     // UI Text field to display the dialogue
     [SerializeField]
-    Text textField;
+    public Text textField;
 
     // Full text to be displayed in the text box
     [SerializeField]
@@ -39,7 +39,7 @@ public class InteractText : MonoBehaviour
 
     // Key to interact with the text box
     [SerializeField]
-    KeyCode interact;
+    public KeyCode interact;
 
     // Number of new lines encountered in the text
     [SerializeField]

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 //using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class SceneTracker : MonoBehaviour
@@ -45,6 +46,11 @@ public class SceneTracker : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         reassignImage();
+
+        if(scene.name == "inside house")
+        {
+            reassignDayText();
+        }
 
         if (scene.name == "TeamLogo")
         {
@@ -92,5 +98,14 @@ public class SceneTracker : MonoBehaviour
     private void reassignImage()
     {
         fadeBackground = FindObjectOfType<FadeScript>();
+    }
+
+    private void reassignDayText()
+    {
+        DaySystem.instance.GetComponent<InteractText>().textField = GameObject.Find("TextHouse").GetComponent<Text>();
+        if(DaySystem.instance.getDayNumber() > 0 && DaySystem.instance.newDay == true)
+        {
+            DaySystem.instance.endDay();
+        }
     }
 }
