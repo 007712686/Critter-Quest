@@ -52,7 +52,7 @@ public class BedSleep : MonoBehaviour
                     }
                 }
             }
-            else if (initialBedInteract == true)
+            else if (initialBedInteract == true && gameObject.GetComponent<TextHolder>().endOfIndex == false)
             {
                 yesButton.gameObject.SetActive(true);
                 noButton.gameObject.SetActive(true);

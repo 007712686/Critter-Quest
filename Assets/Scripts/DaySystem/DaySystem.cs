@@ -77,11 +77,6 @@ public class DaySystem : MonoBehaviour
         //newDay = true;
     }
 
-    public void showEndOfDayStats()
-    {
-
-    }
-
     public void goodMorning()
     {
         if(dayNumber == 0)
@@ -126,10 +121,11 @@ public class DaySystem : MonoBehaviour
 
         for(int i = 0; i < allPets.Length; i++)
         {
-            Debug.Log("STUCK");
             if (allPets[i].happiness >= 100 && allPets[i].fullness >= 100)
             {
                 allPets[i].level++;
+                allPets[i].happiness = 0;
+                allPets[i].fullness = 0;
                 temp.Add(allPets[i].name + " has increased to level " + allPets[i].level + "!!!");
             }
         }
@@ -140,11 +136,6 @@ public class DaySystem : MonoBehaviour
     public int getDayNumber()
     {
         return dayNumber;
-    }
-
-    void chci()
-    {
-        
     }
 
 }
