@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   petName: Slime
-  happiness: 50
+  happiness: 100
   maxHapp: 100
-  fullness: 50
+  fullness: 100
   maxFull: 100
   level: 1
