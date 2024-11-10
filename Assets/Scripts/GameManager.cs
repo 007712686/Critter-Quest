@@ -111,6 +111,11 @@ public class GameManager : Singleton<GameManager>
                 shopping = false;
 
             }
+            else
+            {
+                GameManager.Instance.closeInventory();
+
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Backspace) && GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().getPauseWorld() == true)
         {

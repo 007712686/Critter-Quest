@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
@@ -138,15 +139,22 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     }
     private void OnFeed()
     {
-        if(GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget != null)
+        Vector2 dir = GameManager.Instance.getPlayer().GetComponent<Interact>().currentDirection;
+        RaycastHit2D target = Physics2D.Raycast(GameManager.Instance.getPlayer().transform.position, dir, 1, GameManager.Instance.getPlayer().GetComponent<Interact>().layerMask);
+        GameObject tar = null;
+        if (target.transform != null)
         {
-            if(GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>() != null)
+            tar = target.transform.gameObject;
+        }
+        if (tar != null)
+        {
+            if(tar.GetComponent<PetInfo>() != null)
             {
-                print("Feeding " + GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.petName);
-                GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.fullness += 10;
-                if(GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.fullness > GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.maxFull)
+                print("Feeding " + tar.GetComponent<PetInfo>().thisPet.petName);
+                tar.GetComponent<PetInfo>().thisPet.fullness += 10;
+                if(tar.GetComponent<PetInfo>().thisPet.fullness > tar.GetComponent<PetInfo>().thisPet.maxFull)
                 {
-                    GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.fullness = GameManager.Instance.getPlayer().GetComponent<Interact>().interactionTarget.GetComponent<PetInfo>().thisPet.maxFull;
+                   tar.GetComponent<PetInfo>().thisPet.fullness = tar.GetComponent<PetInfo>().thisPet.maxFull;
                 }
                 OnDestroyItem();
             }

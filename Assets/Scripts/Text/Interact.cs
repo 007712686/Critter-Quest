@@ -10,9 +10,9 @@ public class Interact : MonoBehaviour
     [SerializeField]
     public GameObject interactionTarget;
     RaycastHit2D target;
-    Vector2 currentDirection;
+    public Vector2 currentDirection;
     [SerializeField]
-    LayerMask layerMask;
+    public LayerMask layerMask;
     public bool petInteract;
     private void OnDrawGizmos()
     {
