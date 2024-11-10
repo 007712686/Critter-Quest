@@ -10,9 +10,9 @@ public class Interact : MonoBehaviour
     [SerializeField]
     public GameObject interactionTarget;
     RaycastHit2D target;
-    Vector2 currentDirection;
+    public Vector2 currentDirection;
     [SerializeField]
-    LayerMask layerMask;
+    public LayerMask layerMask;
     public bool petInteract;
     private void OnDrawGizmos()
     {
@@ -94,13 +94,23 @@ public class Interact : MonoBehaviour
                     GameManager.Instance.inventory.GetComponentInChildren<InventoryManager>().AddItem(interactionTarget.GetComponent<ItemAssign>().itemItIs);
                     Destroy(interactionTarget);
                 }
-                
+
                 /*fixxxxxxxxx
                 else if (interactionTarget.name == "bed")
                 {
                     interactionTarget.GetComponent<TextHolder>().startConvo();
                 }
                 */
+
+
+                if (interactionTarget.GetComponent<ShopInventory>() != null && GameManager.Instance.shopping != true)
+                {
+                    GameManager.Instance.shopping = true;
+                    GameManager.Instance.openInventory();
+                    interactionTarget.GetComponent<ShopInventory>().showItems();
+                    GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(true);
+
+                }
             }
         }
         

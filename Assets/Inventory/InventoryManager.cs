@@ -30,9 +30,12 @@ public class InventoryManager : MonoBehaviour
             {
                 itemInSlot.count++;
                 itemInSlot.RefreshCount();
-                if(GameManager.Instance.questManager.GetComponent<QuestTracker>().currentQuests.Count != 0)
+                if (GameManager.Instance.questManager != null)
                 {
-                    GameManager.Instance.questManager.GetComponent<QuestTracker>().checkUpdatedInvenAdd(item);
+                    if (GameManager.Instance.questManager.GetComponent<QuestTracker>().currentQuests.Count != 0)
+                    {
+                        GameManager.Instance.questManager.GetComponent<QuestTracker>().checkUpdatedInvenAdd(item);
+                    }
                 }
                 return true;
             }
@@ -47,9 +50,12 @@ public class InventoryManager : MonoBehaviour
             if(itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
-                if (GameManager.Instance.questManager.GetComponent<QuestTracker>().currentQuests.Count != 0)
+                if (GameManager.Instance.questManager != null)
                 {
-                    GameManager.Instance.questManager.GetComponent<QuestTracker>().checkUpdatedInvenAdd(item);
+                    if (GameManager.Instance.questManager.GetComponent<QuestTracker>().currentQuests.Count != 0)
+                    {
+                        GameManager.Instance.questManager.GetComponent<QuestTracker>().checkUpdatedInvenAdd(item);
+                    }
                 }
                 return true;
             }
