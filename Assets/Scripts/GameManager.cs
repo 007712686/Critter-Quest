@@ -7,7 +7,7 @@ public class GameManager : Singleton<GameManager>
 {
     [SerializeField]
     string playerName;
-    GameObject player;
+    public GameObject player;
     GameObject textBox;
     [SerializeField]
     GameObject cursor;
@@ -19,6 +19,8 @@ public class GameManager : Singleton<GameManager>
     public GameObject questManager;
     public Vector2 overPos;
     public bool needReset = false;
+    public bool shopping = false;
+    public int coins = 0;
     protected GameManager()
     {
 
@@ -88,9 +90,36 @@ public class GameManager : Singleton<GameManager>
             GameManager.Instance.openInventory();
             GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(true);
         }
+        else if (Input.GetKeyDown(KeyCode.Backspace) && player.GetComponent<Interact>().interactionTarget != null && GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().getPauseWorld() == true)
+        {
+            if (player.GetComponent<Interact>().interactionTarget.GetComponent<ShopInventory>() != null)
+            {
+                GameManager.Instance.closeInventory();
+                for (int i = 0; i < player.GetComponent<Interact>().interactionTarget.GetComponent<ShopManager>().inventorySlots.Length; i++)
+                {
+                    Destroy(player.GetComponent<Interact>().interactionTarget.GetComponent<ShopManager>().inventorySlots[i].gameObject);
+                    inventory.GetComponentInChildren<InventoryManager>().inventorySlots[i].gameObject.SetActive(true);
+
+                }
+                for (int i = 0; i < player.GetComponent<Interact>().interactionTarget.GetComponent<ShopManager>().inventorySlots.Length; i++)
+                {
+                    if (player.GetComponent<Interact>().interactionTarget.GetComponent<ShopManager>().inventorySlots[i].GetComponentInChildren<InventoryItem>() != null)
+                        player.GetComponent<Interact>().interactionTarget.GetComponent<ShopManager>().inventorySlots[i].GetComponentInChildren<InventoryItem>().CloseContextMenu();
+                }
+                player.GetComponent<Interact>().interactionTarget = null;
+                GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(false);
+                shopping = false;
+
+            }
+        }
         else if (Input.GetKeyDown(KeyCode.Backspace) && GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().getPauseWorld() == true)
         {
             GameManager.Instance.closeInventory();
+            for (int i = 0; i < inventory.GetComponentInChildren<InventoryManager>().inventorySlots.Length; i++)
+            {
+                if (inventory.GetComponentInChildren<InventoryManager>().inventorySlots[i].GetComponentInChildren<InventoryItem>() != null)
+                    inventory.GetComponentInChildren<InventoryManager>().inventorySlots[i].GetComponentInChildren<InventoryItem>().CloseContextMenu();
+            }
             GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(false);
 
         }

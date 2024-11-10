@@ -97,19 +97,44 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         Button destroyButton = contextMenuInstance.transform.Find("DestroyButton").GetComponent<Button>();
         Button viewButton = contextMenuInstance.transform.Find("ViewButton").GetComponent<Button>();
 
-        if(item.isFood != true)
+        if (GameManager.Instance.shopping != true)
         {
-            placeButton.onClick.AddListener(() => OnPlace());
+            if (item.isFood != true)
+            {
+                placeButton.onClick.AddListener(() => OnPlace());
+            }
+            else
+            {
+                placeButton.GetComponentInChildren<Text>().text = "Feed";
+                placeButton.onClick.AddListener(() => OnFeed());
+            }
+            //change place button with feed button
+
+            destroyButton.onClick.AddListener(() => OnDestroyItem());
+            viewButton.onClick.AddListener(() => OnView());
         }
         else
         {
-            placeButton.GetComponentInChildren<Text>().text = "Feed";
-            placeButton.onClick.AddListener(() => OnFeed());
+            placeButton.GetComponentInChildren<Text>().text = "Buy";
+            placeButton.onClick.AddListener(() => OnBuy());
+            Destroy(destroyButton.gameObject);
+            Destroy(viewButton.gameObject);
         }
-        //change place button with feed button
+    }
 
-        destroyButton.onClick.AddListener(() => OnDestroyItem());
-        viewButton.onClick.AddListener(() => OnView());
+    private void OnBuy()
+    {
+        if (GameManager.Instance.coins >= item.cost)
+        {
+            GameManager.Instance.inventory.GetComponentInChildren<InventoryManager>().AddItem(this.item);
+            GameManager.Instance.coins -= item.cost;
+        }
+        else
+        {
+            print("Too expensive!");
+        }
+        CloseContextMenu();
+
     }
     private void OnFeed()
     {
@@ -175,7 +200,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         CloseContextMenu();
     }
 
-    private void CloseContextMenu()
+    public void CloseContextMenu()
     {
         if (contextMenuInstance != null)
         {

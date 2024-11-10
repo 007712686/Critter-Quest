@@ -15,7 +15,7 @@ public class Item : ScriptableObject
     public bool isFood;
     [Header("Only UI")]
     public bool stackable = true;
-
+    public int cost = 0;
     [Header("Both")]
     public Sprite image;
     public GameObject pref;
