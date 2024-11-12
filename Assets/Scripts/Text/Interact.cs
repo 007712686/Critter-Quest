@@ -52,11 +52,19 @@ public class Interact : MonoBehaviour
             if(target.transform != null)
             {
                 interactionTarget = target.transform.gameObject;
+
+
+
                 //Handles interacting with objects with text boxes
                 if (interactionTarget.GetComponent<InteractText>() != null && interactionTarget.GetComponent<TextHolder>() != null && interactionTarget.GetComponent<InteractText>().getEndOfBox() != true && interactionTarget.GetComponent<InteractText>().getCompleteResetter() != true)
                 {
+                    if(interactionTarget.GetComponent<RandomForestItems>() != null)
+                    {
+                        print("GAINED");
+                        interactionTarget.GetComponent<RandomForestItems>().gainItem();
+                    }
                     if(interactionTarget.GetComponent<InteractText>().getIsTyping() == false)
-                    interactionTarget.GetComponent<TextHolder>().startConvo();
+                        interactionTarget.GetComponent<TextHolder>().startConvo();
                 }
                 //Handles interacting with objects with quests
                 if (interactionTarget.GetComponent<QuestGiver>() != null)
