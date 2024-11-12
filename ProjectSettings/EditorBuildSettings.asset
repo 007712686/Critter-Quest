@@ -35,7 +35,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Scene.unity
     guid: 488deddac4f31974e9f85403d6a5098c
-  - enabled: 1
-    path: Assets/MiniGameHellcat/Scenes/LaserMiniGame.unity
-    guid: 69be691237147db458e2e26815671184
   m_configObjects: {}
