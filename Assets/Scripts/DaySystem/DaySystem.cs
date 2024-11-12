@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class DaySystem : MonoBehaviour
     public string[] mainDialogue;
     public bool newDay = true;
     public PetObject[] allPets;
+    public QuestSO[] allQuests;
+    public QuestSO currentQuest;
  
     private void Awake()
     {
@@ -87,6 +90,7 @@ public class DaySystem : MonoBehaviour
         else
         {
             goodMorningDialogue();
+
         }
     }
 
@@ -136,6 +140,46 @@ public class DaySystem : MonoBehaviour
     public int getDayNumber()
     {
         return dayNumber;
+    }
+
+    public void questAssigner()
+    {
+        bool allQuestsCompleted = false;
+
+        if(currentQuest != null)
+        {
+            if(currentQuest.questTurnedIn == true)
+            {
+                for (int i = 0; i < allQuests.Length; i++)
+                {
+                    if (allQuests[i].questTurnedIn == true)
+                    {
+                        if (i == allQuests.Length)
+                        {
+                            allQuestsCompleted = true;
+                        }
+                    }
+                }
+                if (allQuestsCompleted == false)
+                {
+                    System.Random random = new System.Random();
+                    int randomIndex;
+
+                    do
+                    {
+                        randomIndex = random.Next(0, allQuests.Length - 1);
+                    }
+
+                    while (allQuests[randomIndex].questTurnedIn == true);
+
+                    currentQuest = allQuests[randomIndex];
+                }
+            }
+            else
+            {
+                //keep current quest
+            }
+        }
     }
 
 }

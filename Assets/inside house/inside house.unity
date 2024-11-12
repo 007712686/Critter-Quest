@@ -6143,6 +6143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interact: 9
   interactionTarget: {fileID: 0}
+  currentDirection: {x: 0, y: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -9255,12 +9256,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allPets.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allPets.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ebb746c7012e1944cae7d362d9d75828, type: 2}
+    - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: allPets.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: eddbb21bf269ea64789ef5880172ead9, type: 2}
+    - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: allPets.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8275929ffba849c4facb2f931cf93f65, type: 2}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: mainDialogue.Array.size
       value: 1
