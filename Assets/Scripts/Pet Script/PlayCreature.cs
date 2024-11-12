@@ -20,7 +20,16 @@ public class PlayCreature : MonoBehaviour
     }
     public void play()
     {
-        //Set up minigame here
-        SceneManager.LoadScene("FallingMiniScene");
+        PetInfo petName = GetComponentInParent<PetInfo>();
+        if(petName.thisPet.petName == "Slime")
+        {
+            //Set up minigame here
+            SceneManager.LoadScene("FallingMiniScene");
+        }
+        else if(petName.thisPet.petName == "Hellcat")
+        {
+            SceneManager.LoadScene("LaserMiniGame");
+        }
+        
     }
 }

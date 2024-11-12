@@ -56,7 +56,7 @@ public class SceneTracker : MonoBehaviour
         {
             logoToMenu();
         }
-        else if (previousSceneName == "FallingMiniScene" && scene.name == "FallingMiniScene")
+        else if ((previousSceneName == "FallingMiniScene" && scene.name == "FallingMiniScene") || (previousSceneName == "LaserMiniGame" && scene.name == "LaserMiniGame"))
         {
             //do nothing, reloading mini game scene
             fadeBackground.gameObject.SetActive(false);
@@ -67,12 +67,12 @@ public class SceneTracker : MonoBehaviour
         }
 
         //add more audio as needed
-        if ((scene.name != previousSceneName && scene.name != "FallingMiniScene") && scene.name != "Settings" && (scene.name != "MainMenu" && previousSceneName != "Settings"))
+        if ((scene.name != previousSceneName && scene.name != "FallingMiniScene" && scene.name != "LaserMiniGame") && scene.name != "Settings" && (scene.name != "MainMenu" && previousSceneName != "Settings"))
         {
             AudioManager.instance.assignMusic();
         }
         //add other mini game exceptions here
-        else if (previousSceneName == "FallingMiniScene" && scene.name == "critter quest")
+        else if ((previousSceneName == "FallingMiniScene" || previousSceneName == "LaserMiniGame") && scene.name == "critter quest")
         {
             //do nothing
         }
@@ -82,6 +82,11 @@ public class SceneTracker : MonoBehaviour
         {
             // Print the score from the Singleton
             Debug.Log("Money Earned From Mini Game: " + GameManagerMini.Instance.previousTotalScore);
+        }
+        else if (previousSceneName == "LaserMiniGame" && scene.name == "critter quest")
+        {
+                // Print the score from the Singleton
+                Debug.Log("Money Earned From Mini Game: " + GameManagerLaser.Instance.previousTotalScore);
         }
         Debug.Log(previousSceneName + " to " + scene.name);
         // Update the previous scene to the current one
