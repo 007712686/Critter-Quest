@@ -8,7 +8,10 @@ public class QuestGiver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(DaySystem.instance != null)
+        {
+            questGiven = DaySystem.instance.currentQuest;
+        }
     }
 
     // Update is called once per frame

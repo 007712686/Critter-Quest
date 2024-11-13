@@ -101,8 +101,9 @@ public class DaySystem : MonoBehaviour
         {
             instance.GetComponent<TextHolder>().setDialogue(newDialogue);
             newDay = false;
+
         }
-        
+        questAssigner();
         instance.GetComponent<TextHolder>().startConvo();
     }
 
@@ -119,6 +120,8 @@ public class DaySystem : MonoBehaviour
 
     public void goodMorningDialogue()
     {
+        questAssigner();
+
         List<string> temp = new List<string>();
 
         temp.Add("Good Morning! Today is a new day!");
@@ -144,42 +147,49 @@ public class DaySystem : MonoBehaviour
 
     public void questAssigner()
     {
+        bool currentQuestCompleted = false;
         bool allQuestsCompleted = false;
 
-        if(currentQuest != null)
+        for (int i = 0; i < allQuests.Length; i++)
         {
-            if(currentQuest.questTurnedIn == true)
+            if (allQuests[i].questTurnedIn == true)
             {
-                for (int i = 0; i < allQuests.Length; i++)
+                if (i == allQuests.Length)
                 {
-                    if (allQuests[i].questTurnedIn == true)
-                    {
-                        if (i == allQuests.Length)
-                        {
-                            allQuestsCompleted = true;
-                        }
-                    }
+                    allQuestsCompleted = true;
                 }
-                if (allQuestsCompleted == false)
-                {
-                    System.Random random = new System.Random();
-                    int randomIndex;
-
-                    do
-                    {
-                        randomIndex = random.Next(0, allQuests.Length - 1);
-                    }
-
-                    while (allQuests[randomIndex].questTurnedIn == true);
-
-                    currentQuest = allQuests[randomIndex];
-                }
-            }
-            else
-            {
-                //keep current quest
             }
         }
-    }
 
+        if (currentQuest != null)
+        {
+            if (currentQuest.questTurnedIn == true)
+            {
+                currentQuestCompleted = true;
+            }
+        }
+
+        else
+        {
+            //load current quest.... if quest is completed upon load, currentQuestCompleted = true; else = false;
+            //for now we reassign it if null
+            currentQuestCompleted = true;
+            //load current quest
+        }
+
+        if (allQuestsCompleted == false && currentQuestCompleted == true)
+        {
+            System.Random random = new System.Random();
+            int randomIndex;
+
+            do
+            {
+                randomIndex = random.Next(0, allQuests.Length);
+            }
+
+            while (allQuests[randomIndex].questTurnedIn == true);
+
+            currentQuest = allQuests[randomIndex];
+        }
+    }
 }

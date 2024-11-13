@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb38d0aea6d78e438ab58e632561450, type: 3}
+  m_Name: Test Quest2
+  m_EditorClassIdentifier: 
+  questID: 0
+  goal1ID: 1
+  goal2ID: 2
+  goal1Max: 2
+  goal2Max: 5
+  goal1Progress: 0
+  goal2Progress: 0
+  questName: Test Quest 2!
+  questRequirements: SOME REQUIREMENTS
+  questGoal1Words: Get Stuff
+  questGoal2Words: Get More Stuff
+  questGiver: 
+  questFinished: 0
+  questTurnedIn: 0
+  questAccepted: 0
