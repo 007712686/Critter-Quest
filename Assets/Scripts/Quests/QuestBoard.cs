@@ -30,10 +30,10 @@ public class QuestBoard : MonoBehaviour
     {
         //Opens up the board and sets all reference buttons to their proper values based on quest status
         acceptButton.GetComponentInChildren<Text>().text = "Accept";
-        this.gameObject.transform.localPosition = new Vector2(-57, 20);
+        this.gameObject.transform.localPosition = new Vector2(37.5f, 20); //koda
         turnInButton.transform.localPosition = new Vector3(10000, -10000, 0);
-        acceptButton.transform.localPosition = new Vector3(0, -55.1f, 0);
-        denyButton.transform.localPosition = new Vector3(0, -62.3f, 0);
+        acceptButton.transform.localPosition = new Vector3(-95, -119.34f, 0); //koda
+        denyButton.transform.localPosition = new Vector3(93.7f, -119.34f, 0); //koda
         if (this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion != null)
         {
             qName.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questName + " (" +
@@ -44,11 +44,12 @@ public class QuestBoard : MonoBehaviour
             if (this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questAccepted == true)
             {
                 acceptButton.GetComponentInChildren<Text>().text = "Close";
+                acceptButton.transform.localPosition = new Vector3(1.58f, -119.34f, 0); //koda
                 denyButton.transform.localPosition = new Vector3(10000, -10000, 0);
             }
             if (this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questFinished == true)
             {
-                turnInButton.transform.localPosition = new Vector3(0, -55.1f, 0);
+                turnInButton.transform.localPosition = new Vector3(1.58f, -119.34f, 0); //koda
                 acceptButton.transform.localPosition = new Vector3(10000, -10000, 0);
 
             }
