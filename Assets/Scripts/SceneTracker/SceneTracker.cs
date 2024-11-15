@@ -80,13 +80,15 @@ public class SceneTracker : MonoBehaviour
         // for money from minigame
         if (previousSceneName == "FallingMiniScene" && scene.name == "critter quest")
         {
+            GameManager.Instance.coins += GameManagerMini.Instance.previousTotalScore;
             // Print the score from the Singleton
             Debug.Log("Money Earned From Mini Game: " + GameManagerMini.Instance.previousTotalScore);
         }
         else if (previousSceneName == "LaserMiniGame" && scene.name == "critter quest")
         {
-                // Print the score from the Singleton
-                Debug.Log("Money Earned From Mini Game: " + GameManagerLaser.Instance.previousTotalScore);
+            GameManager.Instance.coins += GameManagerLaser.Instance.previousTotalScore;
+            // Print the score from the Singleton
+            Debug.Log("Money Earned From Mini Game: " + GameManagerLaser.Instance.previousTotalScore);
         }
         Debug.Log(previousSceneName + " to " + scene.name);
         // Update the previous scene to the current one
