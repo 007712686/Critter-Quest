@@ -110,6 +110,7 @@ public class GameManagerMini : MonoBehaviour
                     highScore = Score.score;
 
                     Debug.Log("NEW HIGHSCORE: " + highScore);
+                    GameManager.Instance.coins += Score.score;
                 }
 
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name); //restarting scene!
