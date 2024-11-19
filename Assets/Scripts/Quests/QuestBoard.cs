@@ -36,8 +36,9 @@ public class QuestBoard : MonoBehaviour
         denyButton.transform.localPosition = new Vector3(93.7f, -119.34f, 0); //koda
         if (this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion != null)
         {
-            qName.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questName + " (" +
-                    this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questID + ")";
+            qName.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questName;
+            //qName.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questName + " (" +
+            //this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questID + ")";
             qReq.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questRequirements;
             qg1.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questGoal1Words;
             qg2.text = this.gameObject.transform.parent.gameObject.GetComponent<QuestTracker>().questInQuestion.questGoal2Words;

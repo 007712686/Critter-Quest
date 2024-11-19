@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 0
   goal1ID: 1
-  goal2ID: 2
-  goal1Max: 2
-  goal2Max: 5
+  goal2ID: 0
+  goal1Max: 3
+  goal2Max: 0
   goal1Progress: 0
   goal2Progress: 0
-  questName: Test Getting Items!
-  questRequirements: Get 2 pieces of Food and 5 torches! (Use F1 and F2  and F3 with
-    inventory up!)
-  questGoal1Words: Get 2 Food
-  questGoal2Words: Get 5 torches
+  questName: Critter Chef
+  questRequirements: Get 3 pieces of Food from the shop and bring it back here!
+  questGoal1Words: Get 3 Food
+  questGoal2Words: 
   questGiver: 
   questFinished: 0
   questTurnedIn: 0
