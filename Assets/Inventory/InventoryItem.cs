@@ -91,7 +91,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         currentContextMenu = contextMenuInstance; // Set the current context menu reference
 
         // Set the position of the context menu near the clicked item
-        contextMenuInstance.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 50);
+        contextMenuInstance.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 185); //Koda
 
         // Get the buttons and add listeners
         Button placeButton = contextMenuInstance.transform.Find("PlaceButton").GetComponent<Button>();

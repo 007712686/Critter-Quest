@@ -29,6 +29,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6517126952525520829}
   m_Father: {fileID: 0}
@@ -95,6 +96,7 @@ MonoBehaviour:
   count: 1
   parentAfterDrag: {fileID: 0}
   contextMenuPrefab: {fileID: 5593252940188439928, guid: 1edcbd08a70d1ae4f989a9722c21653d, type: 3}
+  currentSlot: {fileID: 0}
 --- !u!1 &3128397581781838960
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +125,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.78650963, y: 0.78650963, z: 0.78650963}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3108242189966141685}
   m_RootOrder: 0
@@ -161,8 +164,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_Font: {fileID: 12800000, guid: ac11d72e6b7494640ab28d956cdd1054, type: 3}
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
