@@ -10047,7 +10047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allQuests.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allPets.Array.data[0]
@@ -10068,7 +10068,15 @@ PrefabInstance:
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allQuests.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 57450d34013b1e94792686b489f90615, type: 2}
+      objectReference: {fileID: 11400000, guid: 43f6ade313e9c0d4db6df6e129e87638, type: 2}
+    - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: allQuests.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 80dbe0de766b1a948b7683ca0cb09345, type: 2}
+    - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: allQuests.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c41faeeeeee7b9e47bc1d87d873fbfb9, type: 2}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: mainDialogue.Array.size
       value: 1

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb38d0aea6d78e438ab58e632561450, type: 3}
+  m_Name: QuestFriend
+  m_EditorClassIdentifier: 
+  questID: 1
+  goal1ID: 2
+  goal2ID: 0
+  goal1Max: 3
+  goal2Max: 0
+  goal1Progress: 0
+  goal2Progress: 0
+  questName: Critter Companion
+  questRequirements: Get 3 Pet Balls from the shop and bring it back here!
+  questGoal1Words: Get 3 Pet Balls
+  questGoal2Words: 
+  questGiver: 
+  questFinished: 0
+  questTurnedIn: 0
+  questAccepted: 0

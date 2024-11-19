@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: QuestFeed
   m_EditorClassIdentifier: 
   questID: 0
-  goal1ID: 0
+  goal1ID: 1
   goal2ID: 0
-  goal1Max: 0
+  goal1Max: 3
   goal2Max: 0
   goal1Progress: 0
   goal2Progress: 0
-  questName: 
-  questRequirements: 
-  questGoal1Words: 
+  questName: Critter Chef
+  questRequirements: Get 3 pieces of Food from the shop and bring it back here!
+  questGoal1Words: Get 3 Food
   questGoal2Words: 
   questGiver: 
   questFinished: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   type: 0
   actionType: 0
   range: {x: 5, y: 4}
-  itemID: 2
+  itemID: 0
   isFood: 0
   stackable: 0
   cost: 6

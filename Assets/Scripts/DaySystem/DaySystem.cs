@@ -154,7 +154,7 @@ public class DaySystem : MonoBehaviour
         {
             if (allQuests[i].questTurnedIn == true)
             {
-                if (i == allQuests.Length)
+                if (i == allQuests.Length - 1)
                 {
                     allQuestsCompleted = true;
                 }
