@@ -61,6 +61,7 @@ public class QuestBoard : MonoBehaviour
     public void closeBoard()
     {
         this.gameObject.transform.localPosition = new Vector2(1000, -1000);
+        GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(false);
     }
 
 }

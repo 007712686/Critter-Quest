@@ -21,6 +21,7 @@ public class GameManager : Singleton<GameManager>
     public bool needReset = false;
     public bool shopping = false;
     public int coins = 0;
+    public string saveFilePath;
     protected GameManager()
     {
 
@@ -114,6 +115,7 @@ public class GameManager : Singleton<GameManager>
             else
             {
                 GameManager.Instance.closeInventory();
+                GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(false);
 
             }
         }
