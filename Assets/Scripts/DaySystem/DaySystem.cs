@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -143,8 +142,9 @@ public class DaySystem : MonoBehaviour
 
         temp.Add("Good Morning! Today is a new day!");
 
-        for(int i = 0; i < allPets.Length; i++)
+        for (int i = 0; i < allPets.Length; i++)
         {
+            Debug.Log(allPets[i].name);
             if (allPets[i].happiness >= 100 && allPets[i].fullness >= 100)
             {
                 allPets[i].level++;
@@ -178,6 +178,11 @@ public class DaySystem : MonoBehaviour
                     allQuestsCompleted = true;
                 }
             }
+            else
+            {
+                allQuestsCompleted = false;
+                break;
+            }
         }
 
         //quest has been assigned already
@@ -193,9 +198,10 @@ public class DaySystem : MonoBehaviour
         {
             currentQuestCompleted = true;
         }
-
+        Debug.Log("All Quests Complete? - " + allQuestsCompleted.ToString());
         if (allQuestsCompleted == false && currentQuestCompleted == true)
         {
+            Debug.Log("Assigning...");
             System.Random random = new System.Random();
             int randomIndex;
 

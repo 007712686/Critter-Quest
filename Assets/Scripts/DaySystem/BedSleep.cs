@@ -85,6 +85,10 @@ public class BedSleep : MonoBehaviour
     {
         yesButton.gameObject.SetActive(!yesButton.gameObject.activeSelf);
         noButton.gameObject.SetActive(!noButton.gameObject.activeSelf);
+        if(DaySystem.instance == null)
+        {
+            Debug.Log("DAYSYS is NULL!!!");
+        }
         DaySystem.instance.goodMorningDialogue();
         StartCoroutine(waitBeforeLoad());
         //image.gameObject.SetActive(true);

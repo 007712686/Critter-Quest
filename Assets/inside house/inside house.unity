@@ -10100,15 +10100,15 @@ PrefabInstance:
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allPets.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: ebb746c7012e1944cae7d362d9d75828, type: 2}
+      objectReference: {fileID: 11400000, guid: 710fc40f507083e46b291ca99a373028, type: 2}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allPets.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: eddbb21bf269ea64789ef5880172ead9, type: 2}
+      objectReference: {fileID: 11400000, guid: 55694f66576b5974c8ce0772672ef19d, type: 2}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allPets.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 8275929ffba849c4facb2f931cf93f65, type: 2}
+      objectReference: {fileID: 11400000, guid: a9b06ca841de49a4b90a7bad2ebfea19, type: 2}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allQuests.Array.data[0]
       value: 

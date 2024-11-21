@@ -7,6 +7,13 @@ public class QuestTracker : MonoBehaviour
     public List<QuestSO> currentQuests = new List<QuestSO>();
     public QuestSO questInQuestion;
     public BadgeController badgeController;
+
+    void Start()
+    {
+        
+        
+    }
+
     public void checkUpdatedInvenAdd(Item itemSent)
     {
         //Checks for quests that require an item, updates the inventory to see if the goals are met.
@@ -106,11 +113,6 @@ public class QuestTracker : MonoBehaviour
             }
         }
         badgeController.revealAfterQuestTurnedIn();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

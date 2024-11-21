@@ -52,6 +52,11 @@ public class SceneTracker : MonoBehaviour
             reassignDayText();
         }
 
+        if(scene.name == "critter quest")
+        {
+            reassignQuest();
+        }
+
         if (scene.name == "TeamLogo")
         {
             logoToMenu();
@@ -110,9 +115,26 @@ public class SceneTracker : MonoBehaviour
     private void reassignDayText()
     {
         DaySystem.instance.GetComponent<InteractText>().textField = GameObject.Find("TextHouse").GetComponent<Text>();
-        if(DaySystem.instance.getDayNumber() > 0 && DaySystem.instance.newDay == true && DaySystem.instance.isLoaded == false)
+        DaySystem.instance.GetComponent<DaySystem>().save = GameObject.Find("SaveLoad").GetComponent<SaveLoadScript>();
+        if (DaySystem.instance.getDayNumber() > 0 && DaySystem.instance.newDay == true && DaySystem.instance.isLoaded == false)
         {
             DaySystem.instance.endDay();
+        }
+    }
+
+    private void reassignQuest()
+    {
+        Debug.Log("QUEST MANAGER ASSIGNMENT");
+        GameManager.Instance.questManager = FindObjectOfType<QuestTracker>().gameObject;
+
+        if (DaySystem.instance != null)
+        {
+            if (DaySystem.instance.currentQuest.questAccepted)
+            {
+                
+                GameManager.Instance.questManager.GetComponent<QuestTracker>().questInQuestion = DaySystem.instance.currentQuest;
+                GameManager.Instance.questManager.GetComponent<QuestTracker>().currentQuests.Add(DaySystem.instance.currentQuest);
+            }
         }
     }
 }
