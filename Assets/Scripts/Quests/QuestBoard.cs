@@ -7,6 +7,7 @@ public class QuestBoard : MonoBehaviour
     public bool turningInQuest = false;
     public Text qName, qReq, qg1, qg2;
     public GameObject turnInButton, acceptButton, denyButton;
+    public GameObject hideBadgeStuff;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class QuestBoard : MonoBehaviour
 
     public void openBoard()
     {
+        hideBadgeStuff.SetActive(false);
         //Opens up the board and sets all reference buttons to their proper values based on quest status
         acceptButton.GetComponentInChildren<Text>().text = "Accept";
         this.gameObject.transform.localPosition = new Vector2(37.5f, 20); //koda
@@ -60,6 +62,7 @@ public class QuestBoard : MonoBehaviour
     }
     public void closeBoard()
     {
+        hideBadgeStuff.SetActive(true);
         this.gameObject.transform.localPosition = new Vector2(1000, -1000);
         GameManager.Instance.getPlayer().GetComponent<PlayerMovement>().setPauseWorld(false);
     }
