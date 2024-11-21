@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    public SaveLoadScript loadGame;
     public void enterNewGame()
     {
         Debug.Log("Entered new game!");
@@ -15,6 +16,9 @@ public class MainMenuScript : MonoBehaviour
     {
         Debug.Log("Enter load game!");
         //enter load screen via scenemanager here
+        loadGame.LoadGame();
+        DaySystem.instance.isLoaded = true;
+        SceneManager.LoadScene("inside house");
     }
 
     public void enterSettings()

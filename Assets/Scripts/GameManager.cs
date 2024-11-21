@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     public GameObject inventory;
     public List<PetObject> petObjects = new List<PetObject>();
+    public List<QuestSO> questsInGame = new List<QuestSO>();
     public GameObject questManager;
     public Vector2 overPos;
     public bool needReset = false;

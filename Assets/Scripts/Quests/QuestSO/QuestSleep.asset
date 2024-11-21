@@ -19,11 +19,11 @@ MonoBehaviour:
   goal2Max: 0
   goal1Progress: 0
   goal2Progress: 0
-  questName: Critter Drowser
+  questName: Critter of the Night
   questRequirements: Get 3 Pet Beds from the shop and bring it back here!
-  questGoal1Words: Get 3 Pet Bowls
+  questGoal1Words: Get 3 Pet Beds
   questGoal2Words: 
   questGiver: 
   questFinished: 0
   questTurnedIn: 0
-  questAccepted: 0
+  questAccepted: 1

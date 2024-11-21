@@ -110,7 +110,7 @@ public class SceneTracker : MonoBehaviour
     private void reassignDayText()
     {
         DaySystem.instance.GetComponent<InteractText>().textField = GameObject.Find("TextHouse").GetComponent<Text>();
-        if(DaySystem.instance.getDayNumber() > 0 && DaySystem.instance.newDay == true)
+        if(DaySystem.instance.getDayNumber() > 0 && DaySystem.instance.newDay == true && DaySystem.instance.isLoaded == false)
         {
             DaySystem.instance.endDay();
         }

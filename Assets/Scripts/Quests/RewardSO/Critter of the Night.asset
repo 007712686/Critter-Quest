@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703a8cbb3b5e81b4b8d4c4ba71098f3f, type: 3}
+  m_Name: Critter of the Night
+  m_EditorClassIdentifier: 
+  badgeName: Critter of the Night
+  badgeDescription: Congrats night owl! You bought your pets 3 beds to sleep in!
+  badgeImage: {fileID: 0}
