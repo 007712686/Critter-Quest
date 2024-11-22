@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfb38d0aea6d78e438ab58e632561450, type: 3}
-  m_Name: QuestFeed
+  m_Name: Critter Chef
   m_EditorClassIdentifier: 
   questID: 0
   goal1ID: 1

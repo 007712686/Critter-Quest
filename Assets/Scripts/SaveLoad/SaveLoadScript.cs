@@ -61,9 +61,11 @@ public class SaveLoadScript : MonoBehaviour
                 level = pet.level
             });
         }
-
-        foreach(var quests in GameManager.Instance.questsInGame)
+        //edit this for daysysarray
+        for(int i = 0; i < DaySystem.instance.allQuests.Length; i++)
         {
+            var quests = DaySystem.instance.allQuests[i];
+
             saveData.savedQuests.Add(new SavedQuests
             {
                 questID = quests.questID,
@@ -134,10 +136,12 @@ public class SaveLoadScript : MonoBehaviour
                 }
             }
 
-            foreach (var quests in saveData.savedQuests)
+            for(int i = 0; i < saveData.savedQuests.Count; i++)
             {
+                var quests = saveData.savedQuests[i];
+
                 // Find the existing ScriptableObject by petName
-                QuestSO existingQuest = Resources.Load<QuestSO>($"Quests/{quests.questName}");
+                QuestSO existingQuest = Resources.Load<QuestSO>($"Quests/QuestSO/{quests.questName}");
 
                 if (existingQuest != null)
                 {
@@ -158,11 +162,11 @@ public class SaveLoadScript : MonoBehaviour
                     existingQuest.questAccepted = quests.questAccepted;
 
                     // Add to GameManager's list
-                    GameManager.Instance.questsInGame.Add(existingQuest);
+                    DaySystem.instance.allQuests[i] = existingQuest;
                 }
                 else
                 {
-                    Debug.LogWarning($"Pet with name '{quests.questName}' not found in Resources folder.");
+                    Debug.LogWarning($"Quest with name '{quests.questName}' not found in Resources folder.");
                 }
             }
 
