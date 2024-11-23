@@ -17,14 +17,14 @@ MonoBehaviour:
   goal2ID: 2
   goal1Max: 2
   goal2Max: 5
-  goal1Progress: 6
-  goal2Progress: 4
+  goal1Progress: 2
+  goal2Progress: 5
   questName: Test Getting Items!
   questRequirements: Get 2 pieces of Food and 5 torches! (Use F1 and F2  and F3 with
     inventory up!)
   questGoal1Words: Get 2 Food
   questGoal2Words: Get 5 torches
   questGiver: 
-  questFinished: 0
-  questTurnedIn: 0
+  questFinished: 1
+  questTurnedIn: 1
   questAccepted: 1
