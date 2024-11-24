@@ -18,6 +18,19 @@ public class InventoryManager : MonoBehaviour
     {
         
     }
+    public void ClearInventory()
+    {
+        foreach (var slot in inventorySlots)
+        {
+            // Get all InventoryItem components in this slot and destroy their GameObjects
+            foreach (Transform child in slot.transform)
+            {
+                DestroyImmediate(child.gameObject);
+            }
+        }
+
+        Debug.Log("Inventory cleared.");
+    }
 
     public bool AddItem(Item item)
     {

@@ -9,6 +9,7 @@ public class SaveLoadScript : MonoBehaviour
     {
         public List<SavedPet> petList = new List<SavedPet>();
         public List<SavedQuests> savedQuests = new List<SavedQuests>();
+        public List<SavedInventorySlot> inventorySlots = new List<SavedInventorySlot>();
         public int coins;
         public int day;
         public QuestSO quest;
@@ -34,6 +35,19 @@ public class SaveLoadScript : MonoBehaviour
         public bool questFinished, questTurnedIn, questAccepted;
     }
 
+    [System.Serializable]
+    private class SavedInventorySlot
+    {
+        public List<SavedInventoryItem> items = new List<SavedInventoryItem>();
+    }
+
+    [System.Serializable]
+    private class SavedInventoryItem
+    {
+        public string itemName; // Used to find the correct ScriptableObject or prefab
+        public int itemCount;
+    }
+
     void Start()
     {
         GameManager.Instance.saveFilePath = Application.persistentDataPath + "/savefile.json";
@@ -44,10 +58,14 @@ public class SaveLoadScript : MonoBehaviour
         SaveData saveData = new SaveData
         {
             coins = GameManager.Instance.coins,
-            quest = DaySystem.instance.currentQuest,
-            day = DaySystem.instance.dayNumber
-        };
 
+
+        };
+        if (DaySystem.instance != null)
+        {
+            saveData.day = DaySystem.instance.dayNumber;
+            saveData.quest = DaySystem.instance.currentQuest;
+        }
         // Save all pet objects and their data
         foreach (var pet in GameManager.Instance.petObjects)
         {
@@ -61,34 +79,57 @@ public class SaveLoadScript : MonoBehaviour
                 level = pet.level
             });
         }
-        //edit this for daysysarray
-        for(int i = 0; i < DaySystem.instance.allQuests.Length; i++)
+
+        // Save inventory
+        // Save inventory
+        InventoryManager inventoryManager = GameManager.Instance.inventory.GetComponentInChildren<InventoryManager>();
+        foreach (var slot in inventoryManager.inventorySlots)
         {
-            var quests = DaySystem.instance.allQuests[i];
+            SavedInventorySlot savedSlot = new SavedInventorySlot();
 
-            saveData.savedQuests.Add(new SavedQuests
+            foreach (var inventoryItem in slot.GetComponentsInChildren<InventoryItem>())
             {
-                questID = quests.questID,
-                goal1ID = quests.goal1ID,
-                goal2ID = quests.goal2ID,
-                goal1Max = quests.goal1Max,
-                goal2Max = quests.goal2Max,
-                goal1Progress = quests.goal1Progress,
-                goal2Progress = quests.goal2Progress,
-                questName = quests.questName,
-                questRequirements = quests.questRequirements,
-                questGoal1Words = quests.questGoal1Words,
-                questGoal2Words = quests.questGoal2Words,
-                questGiver = quests.questGiver,
-                questFinished = quests.questFinished,
-                questTurnedIn = quests.questTurnedIn,
-                questAccepted = quests.questAccepted
+                SavedInventoryItem savedItem = new SavedInventoryItem
+                {
+                    itemName = inventoryItem.item.name, // Assuming InventoryItem has itemName
+                    itemCount = inventoryItem.count
+                };
+                savedSlot.items.Add(savedItem);
+            }
 
-            });
+            saveData.inventorySlots.Add(savedSlot);
         }
 
-        //save for all quest objects and their data
 
+        // Save quests
+        if (DaySystem.instance != null)
+        {
+
+
+            for (int i = 0; i < DaySystem.instance.allQuests.Length; i++)
+            {
+                var quests = DaySystem.instance.allQuests[i];
+
+                saveData.savedQuests.Add(new SavedQuests
+                {
+                    questID = quests.questID,
+                    goal1ID = quests.goal1ID,
+                    goal2ID = quests.goal2ID,
+                    goal1Max = quests.goal1Max,
+                    goal2Max = quests.goal2Max,
+                    goal1Progress = quests.goal1Progress,
+                    goal2Progress = quests.goal2Progress,
+                    questName = quests.questName,
+                    questRequirements = quests.questRequirements,
+                    questGoal1Words = quests.questGoal1Words,
+                    questGoal2Words = quests.questGoal2Words,
+                    questGiver = quests.questGiver,
+                    questFinished = quests.questFinished,
+                    questTurnedIn = quests.questTurnedIn,
+                    questAccepted = quests.questAccepted
+                });
+            }
+        }
         // Serialize to JSON and write to file
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(GameManager.Instance.saveFilePath, json);
@@ -102,47 +143,60 @@ public class SaveLoadScript : MonoBehaviour
             string json = File.ReadAllText(GameManager.Instance.saveFilePath);
             SaveData saveData = JsonUtility.FromJson<SaveData>(json);
 
-            // Load coins
+            // Load coins and quest data
             GameManager.Instance.coins = saveData.coins;
+            if(DaySystem.instance != null)
+            {
+                DaySystem.instance.dayNumber = saveData.day;
+                DaySystem.instance.currentQuest = saveData.quest;
+            }
 
-            DaySystem.instance.dayNumber = saveData.day;
 
-            DaySystem.instance.currentQuest = saveData.quest;
-
-            // Clear and refill the petObjects list
+            // Load pets
             GameManager.Instance.petObjects.Clear();
-            GameManager.Instance.questsInGame.Clear();
-
             foreach (var savedPet in saveData.petList)
             {
-                // Find the existing ScriptableObject by petName
                 PetObject existingPet = Resources.Load<PetObject>($"Pets/{savedPet.petName}");
-
                 if (existingPet != null)
                 {
-                    // Update the ScriptableObject's data
                     existingPet.happiness = savedPet.happiness;
                     existingPet.maxHapp = savedPet.maxHapp;
                     existingPet.fullness = savedPet.fullness;
                     existingPet.maxFull = savedPet.maxFull;
                     existingPet.level = savedPet.level;
 
-                    // Add to GameManager's list
                     GameManager.Instance.petObjects.Add(existingPet);
-                }
-                else
-                {
-                    Debug.LogWarning($"Pet with name '{savedPet.petName}' not found in Resources folder.");
                 }
             }
 
-            for(int i = 0; i < saveData.savedQuests.Count; i++)
+            // Load inventory
+            InventoryManager inventoryManager = GameManager.Instance.inventory.GetComponentInChildren<InventoryManager>();
+            inventoryManager.ClearInventory(); // Ensure the inventory is cleared before loading new items
+
+            foreach (var savedSlot in saveData.inventorySlots)
+            {
+                foreach (var savedItem in savedSlot.items)
+                {
+                    Item loadedItem = Resources.Load<Item>($"InventoryItems/{savedItem.itemName}");
+                    if (loadedItem != null)
+                    { 
+                        for(int i = 0; i < savedItem.itemCount; i++)
+                        inventoryManager.AddItem(loadedItem);
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Item '{savedItem.itemName}' not found in Resources folder.");
+                    }
+                }
+            }
+
+
+            // Load quests
+            for (int i = 0; i < saveData.savedQuests.Count; i++)
             {
                 var quests = saveData.savedQuests[i];
 
-                // Find the existing ScriptableObject by petName
                 QuestSO existingQuest = Resources.Load<QuestSO>($"Quests/QuestSO/{quests.questName}");
-
                 if (existingQuest != null)
                 {
                     existingQuest.questID = quests.questID;
@@ -160,17 +214,16 @@ public class SaveLoadScript : MonoBehaviour
                     existingQuest.questFinished = quests.questFinished;
                     existingQuest.questTurnedIn = quests.questTurnedIn;
                     existingQuest.questAccepted = quests.questAccepted;
-
-                    // Add to GameManager's list
-                    DaySystem.instance.allQuests[i] = existingQuest;
+                    if (DaySystem.instance != null)
+                    {
+                        DaySystem.instance.allQuests[i] = existingQuest;
+                    }
                 }
                 else
                 {
                     Debug.LogWarning($"Quest with name '{quests.questName}' not found in Resources folder.");
                 }
             }
-
-            //load quest SOs
 
             Debug.Log("Game Loaded");
         }
