@@ -3,7 +3,7 @@ guid: 2f09396b9a420834f8546fdd52527626
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,12 +20,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMipmapLimit: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -34,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -64,20 +63,17 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -90,7 +86,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -103,7 +98,30 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -3270,158 +3288,159 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tileset_0: -1176200770
-      Tileset_1: 1254637258
-      Tileset_10: 1166536692
-      Tileset_100: -1038018503
-      Tileset_101: 143724132
-      Tileset_102: -1651971440
-      Tileset_103: -2034376832
-      Tileset_104: 675865630
-      Tileset_105: -1502080562
-      Tileset_106: 1795416026
-      Tileset_107: 425288358
-      Tileset_108: 247099117
-      Tileset_109: 1477977581
-      Tileset_11: -677081040
-      Tileset_110: -972981342
-      Tileset_111: 1725705273
-      Tileset_112: 2075531952
-      Tileset_113: -1270468634
-      Tileset_114: 1773259891
-      Tileset_115: -903174190
-      Tileset_116: -4160318
-      Tileset_117: -807243310
-      Tileset_118: -1939622415
-      Tileset_119: -489493332
-      Tileset_12: -513168014
-      Tileset_120: 1600207658
-      Tileset_121: 251712807
-      Tileset_122: 1964032454
-      Tileset_123: 285690909
-      Tileset_124: 1562188184
-      Tileset_125: -1108764665
-      Tileset_126: 1004218097
-      Tileset_127: -648320377
-      Tileset_128: -1008358995
-      Tileset_129: -509901342
-      Tileset_13: 1616126498
-      Tileset_130: 175803852
-      Tileset_131: 394352486
-      Tileset_132: -720334265
-      Tileset_133: -1175699757
-      Tileset_134: 640870049
-      Tileset_135: 8001692
-      Tileset_136: 913981262
-      Tileset_137: -1625386148
-      Tileset_138: -457876955
-      Tileset_139: -890408997
-      Tileset_14: 1696090745
-      Tileset_140: -1589040761
-      Tileset_141: -1754828590
-      Tileset_142: -1841153798
-      Tileset_143: 550981969
-      Tileset_144: 1253657540
-      Tileset_145: -1078001274
-      Tileset_146: -209066512
-      Tileset_147: 1386608648
-      Tileset_148: -637298105
-      Tileset_149: 1361980445
-      Tileset_15: 1661478274
-      Tileset_16: -1173597986
-      Tileset_17: 138425368
-      Tileset_18: -2011101137
-      Tileset_19: -2120172728
-      Tileset_2: -922690301
-      Tileset_20: 1558073567
-      Tileset_21: 600204473
-      Tileset_22: 643774210
-      Tileset_23: 121409339
-      Tileset_24: 948943081
-      Tileset_25: -1433788072
-      Tileset_26: 33938054
-      Tileset_27: 272154137
-      Tileset_28: -1795855552
-      Tileset_29: 1915835519
-      Tileset_3: 827971936
-      Tileset_30: -234290113
-      Tileset_31: -879439888
-      Tileset_32: -937610049
-      Tileset_33: 685298026
-      Tileset_34: -1739476219
-      Tileset_35: 2070695584
-      Tileset_36: -2080707287
-      Tileset_37: 1846360832
-      Tileset_38: 1991735801
-      Tileset_39: 1548923693
-      Tileset_4: 653972139
-      Tileset_40: 240155864
-      Tileset_41: 853957872
-      Tileset_42: -1089838204
-      Tileset_43: -1368485258
-      Tileset_44: 189629045
-      Tileset_45: -6457525
-      Tileset_46: -621746588
-      Tileset_47: 370010273
-      Tileset_48: 70420
-      Tileset_49: -413575833
-      Tileset_5: -1773003243
-      Tileset_50: -44923995
-      Tileset_51: -1424983162
-      Tileset_52: -1784970217
-      Tileset_53: 536058144
-      Tileset_54: 418348267
-      Tileset_55: -2070450778
-      Tileset_56: 2029685854
-      Tileset_57: -262473442
-      Tileset_58: 910666850
-      Tileset_59: -1483226661
-      Tileset_6: 588861808
-      Tileset_60: 371774695
-      Tileset_61: 1871497399
-      Tileset_62: 1408219041
-      Tileset_63: -1769127830
-      Tileset_64: -1033734816
-      Tileset_65: -763162557
-      Tileset_66: -1274917919
-      Tileset_67: -843778946
-      Tileset_68: -178785310
-      Tileset_69: -1877604457
-      Tileset_7: 404684674
-      Tileset_70: -636404059
-      Tileset_71: -892008048
-      Tileset_72: -1109665422
-      Tileset_73: -2104788392
-      Tileset_74: 1067699215
-      Tileset_75: 754005163
-      Tileset_76: -2087113688
-      Tileset_77: -1255228006
-      Tileset_78: -862716832
-      Tileset_79: 1818136068
-      Tileset_8: -791721853
-      Tileset_80: -1146093312
-      Tileset_81: 462129904
-      Tileset_82: -2127089171
-      Tileset_83: -20488750
-      Tileset_84: 1280677762
-      Tileset_85: 666158858
-      Tileset_86: 239246791
-      Tileset_87: 1410472057
-      Tileset_88: 1854667764
       Tileset_89: 1234334230
-      Tileset_9: 246757259
-      Tileset_90: 1971699892
-      Tileset_91: -615124477
-      Tileset_92: 2108848666
-      Tileset_93: -830988691
-      Tileset_94: -1590935275
+      Tileset_47: 370010273
+      Tileset_27: 272154137
+      Tileset_81: 462129904
+      Tileset_18: -2011101137
+      Tileset_13: 1616126498
+      Tileset_126: 1004218097
+      Tileset_67: -843778946
+      Tileset_110: -972981342
+      Tileset_136: 913981262
+      Tileset_10: 1166536692
+      Tileset_138: -457876955
       Tileset_95: 900776663
-      Tileset_96: 854831170
-      Tileset_97: 1012548793
       Tileset_98: -1237035574
+      Tileset_96: 854831170
+      Tileset_132: -720334265
+      Tileset_14: 1696090745
+      Tileset_103: -2034376832
+      Tileset_109: 1477977581
+      Tileset_130: 175803852
+      Tileset_5: -1773003243
+      Tileset_46: -621746588
+      Tileset_120: 1600207658
+      Tileset_49: -413575833
+      Tileset_111: 1725705273
+      Tileset_119: -489493332
+      Tileset_54: 418348267
+      Tileset_22: 643774210
+      Tileset_0: -1176200770
+      Tileset_101: 143724132
+      Tileset_88: 1854667764
+      Tileset_34: -1739476219
+      Tileset_104: 675865630
+      Tileset_12: -513168014
+      Tileset_90: 1971699892
+      Tileset_41: 853957872
+      Tileset_135: 8001692
+      Tileset_127: -648320377
+      Tileset_61: 1871497399
+      Tileset_71: -892008048
+      Tileset_147: 1386608648
+      Tileset_137: -1625386148
+      Tileset_77: -1255228006
+      Tileset_143: 550981969
+      Tileset_28: -1795855552
+      Tileset_11: -677081040
+      Tileset_52: -1784970217
+      Tileset_140: -1589040761
+      Tileset_92: 2108848666
+      Tileset_19: -2120172728
+      Tileset_16: -1173597986
+      Tileset_53: 536058144
+      Tileset_117: -807243310
+      Tileset_58: 910666850
+      Tileset_128: -1008358995
+      Tileset_6: 588861808
+      Tileset_38: 1991735801
+      Tileset_24: 948943081
+      Tileset_36: -2080707287
+      Tileset_121: 251712807
+      Tileset_65: -763162557
+      Tileset_82: -2127089171
+      Tileset_105: -1502080562
+      Tileset_8: -791721853
+      Tileset_108: 247099117
+      Tileset_86: 239246791
+      Tileset_30: -234290113
+      Tileset_44: 189629045
+      Tileset_3: 827971936
+      Tileset_72: -1109665422
+      Tileset_131: 394352486
+      Tileset_17: 138425368
+      Tileset_102: -1651971440
+      Tileset_100: -1038018503
+      Tileset_83: -20488750
+      Tileset_144: 1253657540
+      Tileset_45: -6457525
+      Tileset_25: -1433788072
+      Tileset_31: -879439888
+      Tileset_55: -2070450778
+      Tileset_87: 1410472057
+      Tileset_133: -1175699757
+      Tileset_23: 121409339
+      Tileset_123: 285690909
+      Tileset_1: 1254637258
+      Tileset_66: -1274917919
+      Tileset_114: 1773259891
+      Tileset_94: -1590935275
+      Tileset_79: 1818136068
+      Tileset_106: 1795416026
+      Tileset_142: -1841153798
+      Tileset_141: -1754828590
+      Tileset_63: -1769127830
+      Tileset_115: -903174190
+      Tileset_26: 33938054
+      Tileset_33: 685298026
+      Tileset_48: 70420
+      Tileset_15: 1661478274
+      Tileset_134: 640870049
+      Tileset_20: 1558073567
+      Tileset_113: -1270468634
+      Tileset_73: -2104788392
+      Tileset_91: -615124477
+      Tileset_51: -1424983162
+      Tileset_32: -937610049
+      Tileset_76: -2087113688
+      Tileset_9: 246757259
+      Tileset_39: 1548923693
+      Tileset_42: -1089838204
+      Tileset_7: 404684674
+      Tileset_93: -830988691
+      Tileset_64: -1033734816
+      Tileset_122: 1964032454
+      Tileset_4: 653972139
+      Tileset_57: -262473442
       Tileset_99: -1220432055
-  mipmapLimitGroupName: 
+      Tileset_80: -1146093312
+      Tileset_37: 1846360832
+      Tileset_56: 2029685854
+      Tileset_60: 371774695
+      Tileset_97: 1012548793
+      Tileset_78: -862716832
+      Tileset_75: 754005163
+      Tileset_107: 425288358
+      Tileset_50: -44923995
+      Tileset_145: -1078001274
+      Tileset_70: -636404059
+      Tileset_149: 1361980445
+      Tileset_74: 1067699215
+      Tileset_68: -178785310
+      Tileset_148: -637298105
+      Tileset_35: 2070695584
+      Tileset_2: -922690301
+      Tileset_146: -209066512
+      Tileset_40: 240155864
+      Tileset_29: 1915835519
+      Tileset_59: -1483226661
+      Tileset_125: -1108764665
+      Tileset_129: -509901342
+      Tileset_43: -1368485258
+      Tileset_69: -1877604457
+      Tileset_112: 2075531952
+      Tileset_84: 1280677762
+      Tileset_139: -890408997
+      Tileset_62: 1408219041
+      Tileset_118: -1939622415
+      Tileset_21: 600204473
+      Tileset_124: 1562188184
+      Tileset_85: 666158858
+      Tileset_116: -4160318
+  spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

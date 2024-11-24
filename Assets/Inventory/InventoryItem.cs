@@ -18,6 +18,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     private GameObject contextMenuInstance; // Instance of the context menu
     private static GameObject currentContextMenu; // Static reference to the currently open context menu
     public InventorySlot currentSlot;
+    bool isViewing = true;
+    GameObject showItem = null;
 
     public void RefreshCount()
     {
@@ -91,7 +93,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         currentContextMenu = contextMenuInstance; // Set the current context menu reference
 
         // Set the position of the context menu near the clicked item
-        contextMenuInstance.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 185); //Koda
+        contextMenuInstance.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y); //Koda
 
         // Get the buttons and add listeners
         Button placeButton = contextMenuInstance.transform.Find("PlaceButton").GetComponent<Button>();
@@ -204,6 +206,41 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
     private void OnView()
     {
+        isViewing = true;
+
+        switch (item.name)
+        {
+            case "Ball":
+                showItem = GameObject.Find("Ball");
+                showItem.transform.localPosition = Vector3.zero;
+                break;
+            case "Bed":
+                showItem = GameObject.Find("Bed");
+                showItem.transform.localPosition = Vector3.zero; ;
+                break;
+            case "Bowl":
+                showItem = GameObject.Find("Bowl");
+                GameObject.Find("Bowl").transform.localPosition = Vector3.zero;
+                break;
+            case "Cat Tower":
+                showItem = GameObject.Find("Cat Tower");
+                showItem.transform.localPosition = Vector3.zero;
+                break;
+            case "Food":
+                showItem = GameObject.Find("Food");
+                showItem.transform.localPosition = Vector3.zero;
+                break;
+            case "Water Bed":
+                showItem = GameObject.Find("Water Bed");
+                showItem.transform.localPosition = Vector3.zero;
+                break;
+
+        }
+        if(showItem != null)
+        {
+            StartCoroutine(Viewing());
+        }
+        
         Debug.Log("Viewing item..." + item.name);
         CloseContextMenu();
     }
@@ -223,6 +260,19 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         if (contextMenuInstance == currentContextMenu)
         {
             currentContextMenu = null;
+        }
+    }
+
+    IEnumerator Viewing()
+    {
+        while (isViewing)
+        {
+            if (Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+            {
+                isViewing = false;
+                showItem.transform.localPosition = new Vector3(-1000, 1000);
+            }
+            yield return null;
         }
     }
 }

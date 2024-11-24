@@ -1654,6 +1654,10 @@ PrefabInstance:
     - target: {fileID: 2209310202723883043, guid: 70cbded3ce4ae464094305eb74eca92c, type: 3}
       propertyPath: musicWorld
       value: 
+      objectReference: {fileID: 8300000, guid: db7543a364a7b3142b5057c39a78490e, type: 3}
+    - target: {fileID: 2209310202723883043, guid: 70cbded3ce4ae464094305eb74eca92c, type: 3}
+      propertyPath: musicForest
+      value: 
       objectReference: {fileID: 8300000, guid: 5f4d37df32e34ed448726b9af64d847b, type: 3}
     - target: {fileID: 2209310202723883043, guid: 70cbded3ce4ae464094305eb74eca92c, type: 3}
       propertyPath: musicBedroom
@@ -1983,7 +1987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9053265126906504274, guid: 1a08f050f5571324fb5522011d07f373, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9053265126906504617, guid: 1a08f050f5571324fb5522011d07f373, type: 3}
       propertyPath: m_Pivot.x

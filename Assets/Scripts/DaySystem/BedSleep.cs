@@ -33,9 +33,10 @@ public class BedSleep : MonoBehaviour
     {
         bedInteract = null;
 
-        if(initialBedInteract)
+        if(initialBedInteract || DaySystem.instance.getDayNumber() > 1)
         {
             gameObject.GetComponent<TextHolder>().setDialogue(newDayDialogue);
+            initialBedInteract = true;
         }
         
         if (Input.GetKeyDown(KeyCode.Tab))

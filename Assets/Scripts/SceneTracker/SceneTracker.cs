@@ -72,7 +72,7 @@ public class SceneTracker : MonoBehaviour
         }
 
         //add more audio as needed
-        if ((scene.name != previousSceneName && scene.name != "FallingMiniScene" && scene.name != "LaserMiniGame") && scene.name != "Settings" && (scene.name != "MainMenu" && previousSceneName != "Settings"))
+        if ((scene.name != previousSceneName && scene.name != "FallingMiniScene" && scene.name != "LaserMiniGame") && (previousSceneName != "FallingMiniScene" && previousSceneName != "LaserMiniGame") && scene.name != "Settings" && (scene.name != "MainMenu" && previousSceneName != "Settings"))
         {
             AudioManager.instance.assignMusic();
         }

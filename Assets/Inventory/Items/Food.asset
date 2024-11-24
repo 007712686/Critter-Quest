@@ -19,6 +19,6 @@ MonoBehaviour:
   itemID: 1
   isFood: 1
   stackable: 1
-  cost: 5
+  cost: 1
   image: {fileID: 21300000, guid: c4fb10a0392dae44dbd202fee7ad37e0, type: 3}
   pref: {fileID: 5677570450870222428, guid: d122445fbb33c0b438ade65cb82b71d6, type: 3}
