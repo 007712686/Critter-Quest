@@ -21,6 +21,16 @@ public class WarpScript : MonoBehaviour
 
     public void warp()
     {
+        StartCoroutine(saveBeforeWarp());
+    }
+
+    IEnumerator saveBeforeWarp()
+    {
+        if(DaySystem.instance.save != null)
+        {
+            DaySystem.instance.save.SaveGame();
+        }
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadSceneAsync(sceneName);
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spirit Turtle
   m_EditorClassIdentifier: 
   petName: Spirit Turtle
-  happiness: 40
+  happiness: 0
   maxHapp: 100
   fullness: 0
   maxFull: 100

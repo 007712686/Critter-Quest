@@ -20,6 +20,7 @@ public class PlayCreature : MonoBehaviour
     }
     public void play()
     {
+        DaySystem.instance.save.SaveGame();
         PetInfo petName = GetComponentInParent<PetInfo>();
         if(petName.thisPet.petName == "Slime")
         {

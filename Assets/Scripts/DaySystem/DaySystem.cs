@@ -115,7 +115,14 @@ public class DaySystem : MonoBehaviour
         isLoaded = false;
         questAssigner();
 
-        if(dayNumber > 0)
+        if(dayNumber > 1)
+        {
+            Debug.Log("LOADINGHERE");
+            //save.SaveGame();
+            StartCoroutine(WaitToLoad());
+        }
+
+        else if(dayNumber == 0) 
         {
             save.SaveGame();
         }
@@ -215,4 +222,17 @@ public class DaySystem : MonoBehaviour
             currentQuest = allQuests[randomIndex];
         }
     }
+
+    public IEnumerator WaitToLoad()
+    {
+        yield return new WaitForSeconds(1.5f);
+        save.LoadGame();
+    }
+
+    public IEnumerator WaitToSave()
+    {
+        yield return new WaitForSeconds(0.75f);
+        save.SaveGame();
+    }
+
 }

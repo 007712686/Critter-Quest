@@ -10,6 +10,7 @@ public class BedSleep : MonoBehaviour
     public string[] newDayDialogue;
     private bool initialBedInteract = false;
     private GameObject bedInteract = null;
+    public SaveLoadScript save;
 
     public Button yesButton;
     public Button noButton;
@@ -107,6 +108,7 @@ public class BedSleep : MonoBehaviour
     
     IEnumerator waitBeforeLoad()
     {
+        save.SaveGame();
         yield return new WaitForSeconds(0.5f);
         DaySystem.instance.newDay = true;
         SceneManager.LoadScene("inside house");

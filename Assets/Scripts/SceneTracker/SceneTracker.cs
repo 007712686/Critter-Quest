@@ -45,11 +45,28 @@ public class SceneTracker : MonoBehaviour
     // This method is called every time a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+
         reassignImage();
 
         if(scene.name == "inside house")
         {
             reassignDayText();
+            if (DaySystem.instance != null && DaySystem.instance.getDayNumber() > 0)
+            {
+                StartCoroutine(DaySystem.instance.WaitToLoad());
+            }
+        }
+        else if(scene.name == "critter quest" || scene.name == "store")
+        {
+            reassignDaySave();
+            if(previousSceneName == "FallingMiniScene" || previousSceneName == "LaserMiniGame")
+            {
+                //StartCoroutine(DaySystem.instance.WaitToSave());
+            }
+            if (DaySystem.instance != null)
+            {
+                StartCoroutine(DaySystem.instance.WaitToLoad());
+            }
         }
 
         if(scene.name == "critter quest")
@@ -85,13 +102,15 @@ public class SceneTracker : MonoBehaviour
         // for money from minigame
         if (previousSceneName == "FallingMiniScene" && scene.name == "critter quest")
         {
-            GameManager.Instance.coins += GameManagerMini.Instance.previousTotalScore;
+            StartCoroutine(saveCoinsAfterLoad(GameManagerMini.Instance.previousTotalScore));
+            //GameManager.Instance.coins += GameManagerMini.Instance.previousTotalScore;
             // Print the score from the Singleton
             Debug.Log("Money Earned From Mini Game: " + GameManagerMini.Instance.previousTotalScore);
         }
         else if (previousSceneName == "LaserMiniGame" && scene.name == "critter quest")
         {
-            GameManager.Instance.coins += GameManagerLaser.Instance.previousTotalScore;
+            StartCoroutine(saveCoinsAfterLoad(GameManagerLaser.Instance.previousTotalScore));
+            //GameManager.Instance.coins += GameManagerLaser.Instance.previousTotalScore;
             // Print the score from the Singleton
             Debug.Log("Money Earned From Mini Game: " + GameManagerLaser.Instance.previousTotalScore);
         }
@@ -122,6 +141,11 @@ public class SceneTracker : MonoBehaviour
         }
     }
 
+    private void reassignDaySave()
+    {
+        DaySystem.instance.GetComponent<DaySystem>().save = GameObject.Find("SaveLoad").GetComponent<SaveLoadScript>();
+    }
+
     private void reassignQuest()
     {
         Debug.Log("QUEST MANAGER ASSIGNMENT");
@@ -136,5 +160,16 @@ public class SceneTracker : MonoBehaviour
                 GameManager.Instance.questManager.GetComponent<QuestTracker>().currentQuests.Add(DaySystem.instance.currentQuest);
             }
         }
+    }
+
+    private IEnumerator saveCoinsAfterLoad(int coins)
+    {
+        yield return new WaitForSeconds(1f);
+        DaySystem.instance.save.LoadGame();
+        yield return new WaitForSeconds(0.5f);
+        GameManager.Instance.coins += coins;
+        yield return new WaitForSeconds(1f);
+        DaySystem.instance.save.SaveGame();
+
     }
 }

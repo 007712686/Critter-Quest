@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hellcat
   m_EditorClassIdentifier: 
   petName: Hellcat
-  happiness: 80
+  happiness: 0
   maxHapp: 100
   fullness: 0
   maxFull: 100
