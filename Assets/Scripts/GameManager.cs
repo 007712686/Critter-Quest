@@ -23,11 +23,38 @@ public class GameManager : Singleton<GameManager>
     public bool shopping = false;
     public int coins = 0;
     public string saveFilePath;
+    public string sceneCurrent;
+    public string sceneTarget = "";
     protected GameManager()
     {
 
     }
+    public void positionPlayerProper()
+    {
+        if(sceneTarget != "")
+        {
+            if (sceneCurrent == "inside house" && sceneTarget == "critter quest")
+            {
+                print("GO");
+                player.transform.position = new Vector2(3, 12);
+            }
+            if (sceneCurrent == "critter quest" && sceneTarget == "inside house")
+            {
+                print("GO");
+                player.transform.position = new Vector2(-1, -4);
+            }
+            if (SceneManager.GetActiveScene().name == sceneTarget)
+            {
+                sceneTarget = "";
+                sceneCurrent = SceneManager.GetActiveScene().name;
+            }
 
+        }
+    }
+    private void Start()
+    {
+        sceneCurrent = SceneManager.GetActiveScene().name;
+    }
     public void resetPlayerPos()
     {
         if (player != null)
@@ -82,6 +109,7 @@ public class GameManager : Singleton<GameManager>
 
     void Update()
     {
+        positionPlayerProper();
         if(needReset == true)
         {
             resetPlayerPos();

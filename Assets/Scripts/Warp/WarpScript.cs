@@ -41,6 +41,8 @@ public class WarpScript : MonoBehaviour
         }
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadSceneAsync(sceneName);
+
+
     }
 
 }

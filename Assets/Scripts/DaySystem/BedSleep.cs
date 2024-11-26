@@ -22,6 +22,7 @@ public class BedSleep : MonoBehaviour
 
     void Start()
     {
+
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         //image.gameObject.SetActive(false);
