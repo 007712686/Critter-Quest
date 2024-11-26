@@ -231,13 +231,13 @@ public class DaySystem : MonoBehaviour
 
     public IEnumerator WaitToLoad()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         save.LoadGame();
     }
 
     public IEnumerator WaitToSave()
     {
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.25f);
         save.SaveGame();
     }
 
