@@ -49,7 +49,7 @@ public class SceneTracker : MonoBehaviour
         reassignImage();
 
         //player pos resets
-        if(scene.name == "critter quest" && previousSceneName != "inside house")
+        if(scene.name == "critter quest" && previousSceneName != "inside house" && previousSceneName != "WorldMap")
         {
             loadPlayerPos();
         }
@@ -78,7 +78,7 @@ public class SceneTracker : MonoBehaviour
         }
 
         //reassigning the save object for day system instance
-        else if(scene.name == "critter quest" || scene.name == "store")
+        else if(scene.name == "critter quest" || scene.name == "store" || scene.name == "Forest")
         {
             reassignDaySave();
             if(previousSceneName == "FallingMiniScene" || previousSceneName == "LaserMiniGame")
@@ -106,7 +106,7 @@ public class SceneTracker : MonoBehaviour
             //do nothing, reloading mini game scene
             fadeBackground.gameObject.SetActive(false);
         }
-        else if (scene.name != "Settings" && scene.name != "Inventory")
+        else if (scene.name != "Settings" && scene.name != "Inventory" && scene.name != "WorldMap")
         {
             fadeBackground.StartFadeOutBlack();
         }
