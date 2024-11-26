@@ -21,7 +21,10 @@ public class WarpScript : MonoBehaviour
 
     public void warp()
     {
+        GameManager.Instance.sceneTarget = sceneName;
         SceneManager.LoadSceneAsync(sceneName);
+
+
     }
 
 }
