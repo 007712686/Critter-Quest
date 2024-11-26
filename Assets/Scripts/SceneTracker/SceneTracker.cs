@@ -48,14 +48,36 @@ public class SceneTracker : MonoBehaviour
 
         reassignImage();
 
+        //player pos resets
+        if(scene.name == "critter quest" && previousSceneName != "inside house")
+        {
+            loadPlayerPos();
+        }
+        else if(scene.name == "inside house" && previousSceneName != scene.name && previousSceneName != "MainMenu")
+        {
+            StartCoroutine(waitToMovePlayer());
+        }
+
+        //reassigning dayinstance text for dialogue AND waiting to load game for data
         if(scene.name == "inside house")
         {
             reassignDayText();
-            if (DaySystem.instance != null && DaySystem.instance.getDayNumber() > 0)
+            //loading upon entering inside house scene
+            if(DaySystem.instance != null && previousSceneName != "MainMenu" && previousSceneName != "inside house")
             {
                 StartCoroutine(DaySystem.instance.WaitToLoad());
             }
+            else if (DaySystem.instance != null && DaySystem.instance.getDayNumber() > 0)
+            {
+                StartCoroutine(DaySystem.instance.WaitToLoadUponWakingUp());
+            }
+            else
+            {
+                
+            }
         }
+
+        //reassigning the save object for day system instance
         else if(scene.name == "critter quest" || scene.name == "store")
         {
             reassignDaySave();
@@ -69,7 +91,8 @@ public class SceneTracker : MonoBehaviour
             }
         }
 
-        if(scene.name == "critter quest")
+        //reassigning quest object for other scenes
+        if(scene.name == "critter quest" || scene.name == "store")
         {
             reassignQuest();
         }
@@ -143,7 +166,11 @@ public class SceneTracker : MonoBehaviour
 
     private void reassignDaySave()
     {
-        DaySystem.instance.GetComponent<DaySystem>().save = GameObject.Find("SaveLoad").GetComponent<SaveLoadScript>();
+        if(DaySystem.instance != null)
+        {
+            DaySystem.instance.GetComponent<DaySystem>().save = GameObject.Find("SaveLoad").GetComponent<SaveLoadScript>();
+        }
+       
     }
 
     private void reassignQuest()
@@ -162,6 +189,11 @@ public class SceneTracker : MonoBehaviour
         }
     }
 
+    private void loadPlayerPos()
+    {
+        GameManager.Instance.needReset = true;
+    }
+
     private IEnumerator saveCoinsAfterLoad(int coins)
     {
         yield return new WaitForSeconds(1f);
@@ -171,5 +203,14 @@ public class SceneTracker : MonoBehaviour
         yield return new WaitForSeconds(1f);
         DaySystem.instance.save.SaveGame();
 
+    }
+
+    private IEnumerator waitToMovePlayer()
+    {
+        yield return new WaitForSeconds(0.25f);
+        if (GameManager.Instance.player != null)
+        {
+            GameManager.Instance.player.transform.position = new Vector3(-1, -4, 0);
+        }
     }
 }

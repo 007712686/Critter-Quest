@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip musicWorld;
     public AudioClip musicBedroom;
     public AudioClip musicForest;
+    public AudioClip musicShop;
 
     public static AudioManager instance;
     private void Awake()
@@ -55,7 +56,7 @@ public class AudioManager : MonoBehaviour
                 musicSource.clip = musicForest;
                 break;
             case "store":
-                musicSource.clip = musicForest;
+                musicSource.clip = musicShop;
                 break;
                 //add other cases here as scenes come
         }

@@ -7,6 +7,7 @@ public class ShopManager : MonoBehaviour
     public int maxStackedItems = 16;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
+    public QuestTracker questTracker;
     // Start is called before the first frame update
     void Start()
     {

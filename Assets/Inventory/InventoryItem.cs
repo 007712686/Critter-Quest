@@ -120,8 +120,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         {
             placeButton.GetComponentInChildren<Text>().text = "Buy";
             placeButton.onClick.AddListener(() => OnBuy());
+            viewButton.onClick.AddListener(() => OnView());
             Destroy(destroyButton.gameObject);
-            Destroy(viewButton.gameObject);
+            //Destroy(viewButton.gameObject);
         }
     }
 
@@ -153,7 +154,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             if(tar.GetComponent<PetInfo>() != null)
             {
                 print("Feeding " + tar.GetComponent<PetInfo>().thisPet.petName);
-                tar.GetComponent<PetInfo>().thisPet.fullness += 10;
+                tar.GetComponent<PetInfo>().thisPet.fullness += 25;
                 if(tar.GetComponent<PetInfo>().thisPet.fullness > tar.GetComponent<PetInfo>().thisPet.maxFull)
                 {
                    tar.GetComponent<PetInfo>().thisPet.fullness = tar.GetComponent<PetInfo>().thisPet.maxFull;

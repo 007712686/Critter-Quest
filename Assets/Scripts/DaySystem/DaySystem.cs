@@ -71,7 +71,13 @@ public class DaySystem : MonoBehaviour
                 }
             }
 
-            if (newDay == true && dayNumber > 1)
+            if (isLoaded)
+            {
+                dayNumber = 2;
+                previousDayNumber = 2;
+            }
+
+            else if (newDay == true && dayNumber > 1)
             {
                 previousDayNumber = dayNumber;
                 //goodMorningDialogue();
@@ -119,7 +125,7 @@ public class DaySystem : MonoBehaviour
         {
             Debug.Log("LOADINGHERE");
             //save.SaveGame();
-            StartCoroutine(WaitToLoad());
+            //StartCoroutine(WaitToLoad());
         }
 
         else if(dayNumber == 0) 
@@ -233,6 +239,17 @@ public class DaySystem : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75f);
         save.SaveGame();
+    }
+
+    public IEnumerator WaitToLoadUponWakingUp()
+    {
+        Debug.Log("Hello from coroutine!");
+        while (!(instance.GetComponent<TextHolder>().endOfIndex && Input.GetKeyDown(KeyCode.Tab)))
+        {
+            yield return null;
+        }
+        Debug.Log("Goodbye from coroutine!");
+        save.LoadGame();
     }
 
 }

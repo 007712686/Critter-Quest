@@ -17,7 +17,7 @@ MonoBehaviour:
   goal2ID: 0
   goal1Max: 3
   goal2Max: 0
-  goal1Progress: 0
+  goal1Progress: 3
   goal2Progress: 0
   questName: Critter Provider
   questRequirements: Get 3 Pet Bowls from the shop and bring it back here!

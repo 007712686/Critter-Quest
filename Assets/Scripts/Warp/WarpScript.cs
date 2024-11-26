@@ -26,8 +26,17 @@ public class WarpScript : MonoBehaviour
 
     IEnumerator saveBeforeWarp()
     {
-        if(DaySystem.instance.save != null)
+        if(DaySystem.instance.save != null && DaySystem.instance != null)
         {
+            if(SceneManager.GetActiveScene().name == "critter quest")
+            {
+                GameManager.Instance.overPos = GameManager.Instance.getPlayer().transform.position;
+                //add exceptions here
+                if(sceneName == "store")
+                {
+                    GameManager.Instance.overPos.y = GameManager.Instance.getPlayer().transform.position.y - 1;
+                }
+            }
             DaySystem.instance.save.SaveGame();
         }
         yield return new WaitForSeconds(1.5f);
