@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ObjectTrail : MonoBehaviour
 {
-    private Vector2 targetPos;
-    private bool isMoving;
-    private float timeToMove = 0.2f;
+    public Vector2 targetPos;
+    public bool isMoving;
+    public float timeToMove = 0.2f;
 
-    private Queue<Vector2> playerPositions = new Queue<Vector2>();
-    private Transform playerTransform;
+    public Queue<Vector2> playerPositions = new Queue<Vector2>();
+    public Transform playerTransform;
 
     private void Start()
     {
@@ -20,9 +20,19 @@ public class ObjectTrail : MonoBehaviour
 
     private void Update()
     {
-        if (!isMoving && playerPositions.Count > 0)
+        if (this.gameObject.GetComponent<PetInfo>() != null)
         {
-            StartCoroutine(MoveToPosition(playerPositions.Dequeue()));
+            if (this.gameObject.GetComponent<PetInfo>().following)
+            {
+                print("GOIN2");
+
+                if (!isMoving && playerPositions.Count > 0)
+                {
+                    print("GOIN 3");
+
+                    StartCoroutine(MoveToPosition(playerPositions.Dequeue()));
+                }
+            }
         }
     }
 

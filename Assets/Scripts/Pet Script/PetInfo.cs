@@ -6,6 +6,7 @@ public class PetInfo : MonoBehaviour
 {
     public GameObject viewButton, petButton, playButton, viewScreen;
     public PetObject thisPet;
+    public bool following = false;
     // Start is called before the first frame update
     void Start()
     {

@@ -16,15 +16,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     bool pauseWorld = false;
 
-    private ObjectTrail trailObject; // Add this line
+    public ObjectTrail trailObject; // Add this line
 
     private void Start()
     {
         GameManager.Instance.setPlayer(this.gameObject);
         playerAnim = this.gameObject.GetComponentInChildren<Animator>();
-
-        // Find the trail object or assign it manually in the inspector
-        trailObject = GameObject.FindObjectOfType<ObjectTrail>();
     }
 
     // Modify the MovePlayer coroutine to update the trail
