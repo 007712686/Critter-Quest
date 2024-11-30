@@ -10,6 +10,7 @@ public class PlayerSearch : MonoBehaviour
     private bool canSearch = false; // Tracks if the player is in range to search
     private GameObject currentTarget; // The current prefab the player is colliding with
     public CurrentScore score;
+    public StartScreen StartScreen;
 
     private void Start()
     {
@@ -26,6 +27,11 @@ public class PlayerSearch : MonoBehaviour
         {
             HandleSearch();
         }
+        if(Input.GetKeyDown(KeyCode.Escape) || StartScreen.isPaused == true)
+        {
+                StartScreen.isPaused = true;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

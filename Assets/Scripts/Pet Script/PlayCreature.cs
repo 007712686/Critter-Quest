@@ -31,6 +31,10 @@ public class PlayCreature : MonoBehaviour
         {
             SceneManager.LoadScene("LaserMiniGame");
         }
-        
+        else if(petName.thisPet.petName == "Spirit Turtle")
+        {
+            SceneManager.LoadScene("SpiritHideNSeek");
+        }
+
     }
 }

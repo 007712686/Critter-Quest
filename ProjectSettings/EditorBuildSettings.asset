@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/store/store.unity
     guid: 5de8742d79fae3240b8725849cd05321
+  - enabled: 1
+    path: Assets/Scenes/SpiritHideNSeek.unity
+    guid: 6f61b03eb3c82af41b6bf24f62712642
   m_configObjects: {}
