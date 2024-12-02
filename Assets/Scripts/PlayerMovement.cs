@@ -16,11 +16,40 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     bool pauseWorld = false;
 
+    public ObjectTrail trailObject; // Add this line
+
     private void Start()
     {
         GameManager.Instance.setPlayer(this.gameObject);
         playerAnim = this.gameObject.GetComponentInChildren<Animator>();
     }
+
+    // Modify the MovePlayer coroutine to update the trail
+    private IEnumerator MovePlayer(Vector2 direction)
+    {
+        isMoving = true;
+        playerAnim.SetBool("IsMoving", true);
+        float elapsedTime = 0;
+        origPos = new Vector2(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
+        targetPos = origPos + direction;
+
+        // Notify the trail object of the original position before moving
+        if (trailObject != null)
+        {
+            trailObject.UpdateTrailPosition(origPos);
+        }
+
+        while (elapsedTime < timeToMove)
+        {
+            transform.position = Vector2.Lerp(origPos, targetPos, (elapsedTime / timeToMove));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = targetPos;
+        isMoving = false;
+    }
+
     public void setPauseWorld(bool x)
     {
         pauseWorld = x;
@@ -78,24 +107,5 @@ public class PlayerMovement : MonoBehaviour
 
             }
         }
-    }
-
-
-    private IEnumerator MovePlayer(Vector2 direction)
-    {
-        isMoving = true;
-        playerAnim.SetBool("IsMoving", true);
-        float elapsedTime = 0;
-        origPos = new Vector2(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
-        targetPos = origPos + direction;
-        while (elapsedTime < timeToMove)
-        {
-            transform.position = Vector2.Lerp(origPos, targetPos, (elapsedTime / timeToMove));
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.position = targetPos;
-        isMoving = false;
     }
 }
