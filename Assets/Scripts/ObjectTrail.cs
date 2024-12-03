@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class ObjectTrail : MonoBehaviour
 {
     public Vector2 targetPos;
     public bool isMoving;
     public float timeToMove = 0.2f;
+
+    private Vector2 input;
+    private Animator animator;
 
     public Queue<Vector2> playerPositions = new Queue<Vector2>();
     public Transform playerTransform;
@@ -16,6 +20,7 @@ public class ObjectTrail : MonoBehaviour
         // Assuming the player object has the tag "Player"
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         targetPos = transform.position;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -31,6 +36,28 @@ public class ObjectTrail : MonoBehaviour
                     print("GOIN 3");
 
                     StartCoroutine(MoveToPosition(playerPositions.Dequeue()));
+                }
+                if (this.gameObject.name != "CreatureTest")
+                {
+                    if (isMoving)
+                    {
+                        input.x = UnityEngine.Input.GetAxisRaw("Horizontal");
+                        input.y = UnityEngine.Input.GetAxisRaw("Vertical");
+                        if (input.x != 0) input.y = 0;
+
+                        if (input != Vector2.zero)
+                        {
+                            animator.SetFloat("moveX", input.x);
+                            animator.SetFloat("moveY", input.y);
+
+                            var aniPos = transform.position;
+                            aniPos.x += input.x;
+                            aniPos.y += input.y;
+                        }
+
+                    }
+
+                    animator.SetBool("isMoving", isMoving);
                 }
             }
         }

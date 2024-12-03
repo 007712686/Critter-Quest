@@ -187,7 +187,7 @@ public class SceneTracker : MonoBehaviour
 
         if (DaySystem.instance != null)
         {
-            if (DaySystem.instance.currentQuest.questAccepted)
+            if (DaySystem.instance.currentQuest != null && DaySystem.instance.currentQuest.questAccepted)
             {
                 
                 GameManager.Instance.questManager.GetComponent<QuestTracker>().questInQuestion = DaySystem.instance.currentQuest;

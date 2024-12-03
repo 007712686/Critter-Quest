@@ -26,4 +26,4 @@ MonoBehaviour:
   questGiver: 
   questFinished: 0
   questTurnedIn: 0
-  questAccepted: 0
+  questAccepted: 1
