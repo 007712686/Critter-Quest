@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 07e1d5d7f2026c548be8222cfc816f0b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - searchPromptUI: {fileID: 1004463205563521429, guid: a3b9a5ffcb5a1c64d9d341bd528805e2, type: 3}
+  - foundTextUI: {fileID: 4376070290725701634, guid: 26c3e42224bdbce439da5a74b2a11213, type: 3}
+  - notFoundTextUI: {fileID: 2992895221508650573, guid: 3b0614417e2265440a52dc50f04924ca, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
