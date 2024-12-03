@@ -1792,6 +1792,7 @@ MonoBehaviour:
   playButton: {fileID: 0}
   viewScreen: {fileID: 0}
   thisPet: {fileID: 11400000, guid: a9b06ca841de49a4b90a7bad2ebfea19, type: 2}
+  following: 0
 --- !u!61 &488669936
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2257,6 +2258,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a9b06ca841de49a4b90a7bad2ebfea19, type: 2}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: newDialogue.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: allQuests.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: b4bec8430d389354d9a393535f629332, type: 2}
@@ -2275,6 +2280,14 @@ PrefabInstance:
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: mainDialogue.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: newDialogue.Array.data[3]
+      value: You can press "Tab" to interact with pets, your bed, and the shopkeeper...
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
+      propertyPath: newDialogue.Array.data[4]
+      value: Press "H" at anytime for more help!
       objectReference: {fileID: 0}
     - target: {fileID: 6373888556136265605, guid: 1e20e485a731ae84f98ae8e8f2777695, type: 3}
       propertyPath: mainDialogue.Array.data[0]
@@ -2650,6 +2663,7 @@ MonoBehaviour:
   playButton: {fileID: 0}
   viewScreen: {fileID: 0}
   thisPet: {fileID: 11400000, guid: 55694f66576b5974c8ce0772672ef19d, type: 2}
+  following: 0
 --- !u!61 &637499019
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6795,6 +6809,7 @@ MonoBehaviour:
   playButton: {fileID: 0}
   viewScreen: {fileID: 0}
   thisPet: {fileID: 11400000, guid: 710fc40f507083e46b291ca99a373028, type: 2}
+  following: 0
 --- !u!61 &1445993124
 BoxCollider2D:
   m_ObjectHideFlags: 0
